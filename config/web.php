@@ -50,6 +50,12 @@ $config = [
 
     ],
     'params' => $params,
+
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Admin'
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {
