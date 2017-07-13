@@ -1,208 +1,323 @@
-Yii 2 Basic Project Template
-============================
+Гдеклюет.рф
+===========
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+###1.1 Цели и задачи проекта
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+В целом ресурс создаётся с целью помочь
+рыболовам найти места для рыбалки. Обычно рыбаки хорошо знают водоёмы рядом с
+домом, но что делать если вы оказались в незнакомой части страны, взяли с собой
+удочки и хотите порыбачить? Вот тут-то мы им и поможем.
 
-DIRECTORY STRUCTURE
--------------------
+**Основные цели:**
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+·        
+Поиск мест для рыбалки
 
+·        
+Отчёты о рыбалке в представленных местах на сайте
 
+·        
+Помощь в организации совместных поездок на рыбалку по типу bla-blacarи аналогов
 
-REQUIREMENTS
-------------
+·        
+Барахолка, куда же без неё (вот тут сложно, нужно следить чтобы не было кидалова)
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+·        
+Еще один сайт со статьями про рыбалку, которые будут завлекать на основную часть ресурса (нужны для привлечения людей через поисковые системы).
 
+**Вторичные цели (не сразу):**
 
-INSTALLATION
-------------
+·        
+Реклама платных прудов
 
-### Install via Composer
+·        
+Реклама рыболовных баз
 
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+·        
+Размещение платных обзоров нового оборудования
 
-You can then install this project template using the following command:
+·        
+Розыгрыши брендированного хлама от разных рекламодателей
 
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:^1.3.1"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
+·        
+Вероятно когда-то проведение рыболовных фестивалей
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
+ 
+### 1.2 Аудитория проекта
 
-~~~
-http://localhost/basic/web/
-~~~
+Вот тут реально сложно, можно попробовать
+выпросить данные у какого-нибудь рыболовного сайта, но я что-то не смог
+придумать, зачем нам вообще эти данные сейчас. Как только сайт запустим - будем
+наблюдать данные в GoogleAnalytics и Яндекс Метрике и,
+если что, где-нибудь что-то скорректируем. Для аналитики аудитории нужен уже
+очень опытный маркетолог, который скажет, что аудитории 25-35 нужно продавать
+рыбалку с помощью помощью женщины "морячки-рыбачки", которая будет
+вся такая завлекать. Не уверен что это Пин-Ап, но похоже [http://2d.by/wallpapers/r/rybachka.jpg](http://2d.by/wallpapers/r/rybachka.jpg).
 
+ 
+### 1.3 Структура проекта
 
-### Install from an Archive File
+Структуру я пока слабо представляю, нужно обсуждать и править данный пункт в следующих версиях ТЗ.
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+·        
+Главная
 
-Set cookie validation key in `config/web.php` file to some random secret string:
+                               Новости
 
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
+                               Свежие статьи
 
-You can then access the application through the following URL:
+                               Свежие отчёты
 
-~~~
-http://localhost/basic/web/
-~~~
+                               Свежие предложения о рыбалке
 
+                               Виджет с погодой
 
-CONFIGURATION
--------------
+                               Виджет с прогнозом клёва рыбы (хз как делать О_о) видел у других
 
-### Database
+·        
+Рыбные места 
 
-Edit the file `config/db.php` with real data, for example:
+                               Фильтры
 
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
+                               Список мест
 
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
+                               Карта
 
+                               Отчёты списком со ссылкой на место
 
+                               Сами странички обзоров с рыбными мастами
 
-TESTING
--------
+                                               Комментарии
 
-Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
-By default there are 3 test suites:
+                                               Отчёты
 
-- `unit`
-- `functional`
-- `acceptance`
+                                               Предложения о совместной поездке
 
-Tests can be executed by running
+·        
+Вместе на рыбалку
 
-```
-vendor/bin/codecept run
-``` 
+                               Фильтры по местам
 
-The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
-tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser. 
+                               Фильтры по планируемым снастям (вероятно должно обсуждаться)
 
+                               Предложения о совместной поездке на рыбалку
 
-### Running  acceptance tests
+·        
+Платная рыбалка
 
-To execute acceptance tests do the following:  
+                               Разные фильтры
 
-1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
+                               Список платных платных прудов
 
-2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
-   version of Codeception
+                                               Описание
 
-3. Update dependencies with Composer 
+                                               Обсуждение
 
-    ```
-    composer update  
-    ```
+                                               На карте
 
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
+                               Список рыболовных баз
 
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
+                                               Описание
 
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
+                                               Обсуждение
 
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
-    # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ``` 
-    
-    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-    
-    ```
-    docker run --net=host selenium/standalone-firefox:2.53.0
-    ```
+                                               На карте
 
-5. (Optional) Create `yii2_basic_tests` database and update it by applying migrations if you have them.
+·        
+Обсуждения
 
-   ```
-   tests/bin/yii migrate
-   ```
+                               Форум, который связан с обсуждениями на сайте, по сути дублирует.
 
-   The database configuration can be found at `config/test_db.php`.
+·        
+Статьи
 
+                               Поиск
 
-6. Start web server:
+                               Категории
 
-    ```
-    tests/bin/yii serve
-    ```
+                               Список статей
 
-7. Now you can run all available tests
+ 
 
-   ```
-   # run all available tests
-   vendor/bin/codecept run
+Вот это вот выше очень примерно, чтобы понимать
+объем работ.
 
-   # run acceptance tests
-   vendor/bin/codecept run acceptance
+Дизайны и мокапы делать не хочется, чукча
+не дизайнер.
 
-   # run only unit and functional tests
-   vendor/bin/codecept run unit,functional
-   ```
+ 
+### 1.4 Где брать контент
 
-### Code coverage support
+Начальный контент придётся написать
+самим, т.е. нагло стырить статьи и обзоры с других сайтов, в robots.txtзакрыть сайт от индексации, чтобы ПС не проиндексировали всё это
+безобразие и не пришли к выводу, что сайта копипаста и помойка.
 
-By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
-to collect code coverage. You can run your tests and collect coverage with the following command:
+Перед открытием, если такое случится,
+статьи нужно будет унифицировать, будь то рерайт или новые, позже решим.
 
-```
-#collect coverage for all tests
-vendor/bin/codecept run -- --coverage-html --coverage-xml
+**В будущем:**
 
-#collect coverage only for unit tests
-vendor/bin/codecept run unit -- --coverage-html --coverage-xml
+Ожидается, что источником контекта, в
+большинстве своём, будут пользователи, хотя мне кажется, что некий штатный
+рыболов-писатель нам таки понадобится.
 
-#collect coverage for unit and functional tests
-vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
-```
+**Мотивация пользователей:**
 
-You can see code coverage output under the `tests/_output` directory.
+·        
+Всякие плюшки ввиде
+звёздочек, статус баров и прочей мути на форуме (в комментах).
+
+·        
+Брендированный мерч
+от партнёров за написание какого-то кол-ва статей или совершения каких-то
+полезных действий на сайте, вероятно может получиться какая-то система "рыбацкий
+баллов", за которые можно что-то получить.
+
+·        
+Скидки в
+специализированных магазинах на какие-то товары.
+
+·        
+Конкурсы лучших
+статей сезона (летний - зимний) или вроде того.
+
+ 
+### 2 Распределение работ
+
+Тут мы еще напишем кто и что будет
+делать, сразу скажу, что я готов делать какие-то отдельные модули для сайта, на
+бизнес вопросы и написания статей в данном проекте мне не очень хочется тратить
+время, т.к. работа и проекты у меня есть свои, а тут я программировать учусь.
+
+ 
+### 3.1 Прототипы страниц
+
+Здесь должны быть мокапы, много мокапов.
+Алексей Сергиенко, вроде, начал их делать, ну и славно, добавим их потом сюда
+после обсуждений.
+
+
+### 3.2 Пути пользователей
+
+Создавая этот ресурс мы хотим, чтобы
+рыбаки его посещали регулярно, а не просто зашел - вышел, поэтому никакого "Лендинг"
+давления мы на них оказывать не планируем, будем делать просто и качественно,
+т.е. Сайт будет помогать решить пользователю ту проблему, с которой он пришел
+на сайт, а не навязывать ему что-то всплывающими баннерами и прочей пакостью. 
+
+По началу у нас будет несколько типов
+пользователей, рассмотрим их кратко, т.е. всё это, вероятно, придётся
+переделывать по мере поступления данных из систем аналики, как это обычно и
+бывает. Может ГУРУ маркетинга и веб дизайна способны точно угадать что же будет
+делать пользователь, но я себя таковым не считаю.
+
+**Органический поиск:**
+
+По началу это будут наши основные
+посетители. Они будут приходить на наши статьи о рыбалке, которые будут
+потихоньку ползти вверх в поиске, в основном по "низкочастотным" запросам,
+т.е. длинным, типа "ловля на фидер в подмосковье".
+
+Статьи наши будут связаны между собой
+ссылками, так же где-то рядом с текстом имеет смысл размещать ссылки на
+какие-то другие части сайта, например на новости, прогноз клёва, на другие
+статьи похожие на ту, которую читает пользователь. Каждый тип страниц
+заслуживает **отдельного ТЗ **и подробного рассмотрения.
+
+Пользователь читает статью - уходит с неё
+на другие статьи по мере надобности, никакого давления.
+
+**Соцсети и реклама:**
+
+Вероятно удастся "обменяться" ссылками
+с какими-то еще рыболовными ресурсами, разместить бесплатные ссылки в
+рыболовных группах итд, скорее всего это будут ссылки на главную.
+
+Там они будут читать новости и уходить на
+обзоры мест рыбной ловли и потом в поездки или обсуждения, т.к. в соцсетях и
+рекламе не будет ничего про статьи, там уже будет конкретно продвигаться
+основная фишка ресурса, т.е. рыболовные места на карте.
+
+
+### 4 Техническая часть
+
+На чём писать будем, товарищи? Какие
+технологии использовать?
+
+Логично предположить, что нам бы надо
+использовать всё то что мы уже изучили на курсе, но без того что мы еще не
+изучали, тогда получается:
+
+·        
+Наш php фреймворк (чур не
+мой)
+
+·        
+Чистый js
+
+·        
+html/sass
+
+·        
+gulp
+
+ 
+
+Я бы предложил Yii2, но мы
+его еще не проходили и всем будет сложно.
+
+Какие-то готовые CMS не предлагаю, т.к. там еще сложнее и дурнее, мне кажется нам будет
+проще писать "с нуля".
+
+**Плюсы подхода** - удобно, понятно, гибко.
+
+**Минусы** - новичковая
+структура, детские ошибки проектов, проблемы с безопасностью.
+
+ 
+### 4.1 Модули, которые нужно будет разработать
+
+·        
+Обсуждения, которые
+связаны с форумом, это надо будет осилить APIкакого-то форумного движка и из его базы запрашивать, а так же
+научиться в неё писать.
+
+·        
+Личный кабинет
+пользователя, тоже должен быть связан с форумом по текущей модели.
+
+·        
+Карта с
+возможностью ставить метки и кастомизировать там всё.
+
+·        
+Добавление места
+рыбалки.
+
+·        
+Система создания
+поездки на место рыбалки.
+
+·        
+Админка сайта, там
+статьи, платные пруды и прочие настройки, почти CMS, мы же не
+хотим править конфиг файлы проекта чтобы что-то изменить.
+
+ 
+
+Более подробно должно быть прописано при
+создании конкретного ТЗ к каждому типу страниц.
+
+
+### 5 Тестирование
+
+Хорошо бы писать
+это всё в стиле TDD, но можно на это и забить, т.к. долго
+это О_о
+
+Ну а если надумаем,
+то нужно разбить весь проект на отдельные тестовые группы и запускать их по
+очереди через GULP перед деплоем новых версий проекта на хостинг. Каждый отвечает за свою
+группу, вероятно дргуим в чужой код лазать вообще и не нужно, только делать ТЗ
+взаимодействия компонентов, как мы рассматривали вконце JSкурса.
