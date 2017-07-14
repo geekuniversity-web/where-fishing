@@ -27,6 +27,25 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
+
+    $menuItems = [
+        ['label' => 'Главная', 'url' => ['/site/index']],
+        ['label' => 'Места', 'url' => ['/admin/places/index']],
+        ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
+        Yii::$app->user->isGuest ? (
+        ['label' => 'Login', 'url' => ['/site/login']]
+        ) : (
+            '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>'
+        )
+    ];
+
     NavBar::begin([
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,
@@ -36,23 +55,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Рыбные места', 'url' => ['/places/index']],
-            ['label' => 'Регистрация', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => \mdm\admin\components\Helper::filter($menuItems),
     ]);
     NavBar::end();
     ?>
