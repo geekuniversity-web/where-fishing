@@ -2,55 +2,55 @@
 
 namespace app\models;
 
-
-use yii\base\Model;
-use yii\helpers\Json;
+use Yii;
 
 /**
- * Class Spots
- * @package app\models
- * Модель будет заниматься формированием данных для вывода на страницу "Места для рыбалки"
+ * This is the model class for table "places".
+ *
+ * @property integer $places_id
+ * @property string $places_header
+ * @property resource $places_body
+ * @property string $places_tags
+ * @property integer $places_rating
+ * @property integer $places_type_id
+ * @property integer $places_location_id
  */
-class Spots extends Model
+class Places extends \yii\db\ActiveRecord
 {
     /**
-     * @var $places_id integer
-     * ID статьи про место
+     * @inheritdoc
      */
-    public $places_id;
+    public static function tableName()
+    {
+        return 'places';
+    }
 
     /**
-     * @var $places_header string
-     * Содержит заголовок места
+     * @inheritdoc
      */
-    public $places_header;
+    public function rules()
+    {
+        return [
+            [['places_body'], 'string'],
+            [['places_rating', 'places_type_id', 'places_location_id'], 'integer'],
+            [['places_header'], 'string', 'max' => 45],
+            [['places_tags'], 'string', 'max' => 256],
+        ];
+    }
 
     /**
-     * @var $places_body string
-     * Текст статьи
+     * @inheritdoc
      */
-    public $places_body;
-
-    /**
-     * @var $places_tags Json
-     * будет JSON объект с тегами статьи TODO: не забыть что до конца не согласовали
-     */
-    public $places_tags;
-
-    /**
-     * @var $places_rating integer
-     * рейтинг места, полагаю что от 0 до 5  TODO: вот тут уточнить позднее
-     */
-    public $places_rating;
-
-    /**
-     * @var $places_type_id integer
-     * Тип записи, платная, обычная, еще какая
-     */
-    public $places_type_id;
-
-    /** @var  $places_location integer
-     * id расположения на карте
-     */
-    public $places_location_id;
+    public function attributeLabels()
+    {
+        return [
+            'places_id' => 'Places ID',
+            'places_header' => 'Places Header',
+            'places_body' => 'Places Body',
+            'places_tags' => 'Places Tags',
+            'places_rating' => 'Places Rating',
+            'places_type_id' => 'Places Type ID',
+            'places_location_id' => 'Places Location ID',
+        ];
+    }
 }
