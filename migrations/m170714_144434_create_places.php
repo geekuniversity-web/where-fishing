@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use yii\db\ColumnSchemaBuilder;
 
 class m170714_144434_create_places extends Migration
 {
@@ -8,16 +9,19 @@ class m170714_144434_create_places extends Migration
     {
         $this->createTable('places',
             [
-                'places_id' => $this->integer()->,
-                'places_header' => $this->string()
+                'places_id' => $this->primaryKey(),
+                'places_header' => $this->string(),
+                'places_body' => $this->text(),
+                'places_tags' => $this->text(),
+                'places_rating' => $this->integer(),
+                'places_type_id' => $this->integer(),
+                'places_location_id' => $this->integer()
             ]);
     }
 
     public function safeDown()
     {
-        echo "m170714_144434_create_places cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('places');
     }
 
 }
