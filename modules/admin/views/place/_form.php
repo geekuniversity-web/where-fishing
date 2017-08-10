@@ -16,13 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'entrance')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'boot')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'rating')->textInput() ?>
 
     <?= $form->field($model, 'price_entry')->textInput() ?>
 
@@ -33,8 +29,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'price_rod')->textInput() ?>
 
     <?= $form->field($model, 'price_gear')->textInput() ?>
-
-    <?= $form->field($model, 'region_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\data\Pagination;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
@@ -97,6 +98,13 @@ class Place extends ActiveRecord
         return $this->hasOne(Region::className(), ['id' => 'region_id']);
     }
 
+    public function getRegionName()
+    {
+        $name = $this->getRegion()->asArray()->all();
+
+        return $name[0]['title'];
+    }
+
     public function saveRegion($region_id)
     {
         $region = Region::findOne($region_id);
@@ -112,6 +120,11 @@ class Place extends ActiveRecord
     {
         return $this->hasMany(Fish::className(), ['id' => 'fish_id'])
             ->viaTable('place_fish', ['place_id' => 'id']);
+    }
+
+    private function getFishesArray()
+    {
+        return $this->getFishes()->asArray()->all();
     }
 
     public function getSelectedFishes()
@@ -145,6 +158,11 @@ class Place extends ActiveRecord
             ->viaTable('place_gear', ['place_id' => 'id']);
     }
 
+    private function getGearsArray()
+    {
+        return $this->getGears()->asArray()->all();
+    }
+
     public function getSelectedGears()
     {
         $selectedIds = $this->getGears()->select('id')->asArray()->all();
@@ -167,5 +185,42 @@ class Place extends ActiveRecord
     public function clearCurrentGears()
     {
         PlaceGear::deleteAll(['place_id'=>$this->id]);
+    }
+
+    public static function getAll($pageSize = 5)
+    {
+        $query = Place::find();
+        $count = $query->count();
+        $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
+        $places = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $data['places'] = $places;
+        $data['pagination'] = $pagination;
+
+        return $data;
+    }
+
+    public function getAllFishes()
+    {
+        $fishes = $this->getFishesArray();
+
+        foreach ($fishes as $fish) {
+            $data[] = Fish::findOne($fish['id']);
+        }
+
+        return $data;
+    }
+
+    public function getAllGears()
+    {
+        $gears = $this->getGearsArray();
+
+        foreach ($gears as $gear) {
+            $data[] = Gear::findOne($gear['id']);
+        }
+
+        return $data;
     }
 }

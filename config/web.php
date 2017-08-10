@@ -84,7 +84,8 @@ $config = [
 //            'site/login'
             'rbac/*',
             'gii/*',
-            'admin/*'
+            'admin/*',
+            'place/*',
         ]
     ],
 ];
