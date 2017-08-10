@@ -25,19 +25,21 @@ $this->title = $place->title;
 
         <article class="special-offer-page__article">
             <h4 class="h4">Что тут клюет</h4>
-            <?php foreach ($fishes as $fish)  { ?>
+            <?php if (!empty($fishes)) { foreach ($fishes as $fish)  { ?>
                 <a href="#" class="fish fish_okun">
-                    <img src="<?= $fish->getImage() ?>" alt="" class="fish__img"><br>
+                    <img src="<?= $fish->getImage() ?>" alt="<?= $fish->title ?>" class="fish__img"><br>
                     <span class="fish__span"><?= $fish->title; ?></span>
                 </a>
-            <?php } ?>
+            <?php }} ?>
         </article>
         <div class="clr"></div>
         <article class="special-offer-page__article">
             <h4 class="h4">Какая снасть может пригодиться</h4>
             <p class="special-offer-page__p p">
-                <?php foreach ($gears as $gear) {
-                    echo $gear->title . " ";
+                <?php if (!empty($gears)) {
+                    foreach ($gears as $gear) {
+                        echo $gear->title . " ";
+                    }
                 } ?>
             </p>
         </article>

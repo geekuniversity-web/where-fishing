@@ -29,7 +29,7 @@ PublicAsset::register($this);
     <a class="header__logo logo" href="<?= Yii::$app->homeUrl; ?>">Где клюет<span class="logo__span">.рф</span></a>
     <nav class="header__nav nav">
         <ul class="nav__ul">
-            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="/place/index">Места</a></li>
             <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
             <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
             <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
