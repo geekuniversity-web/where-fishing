@@ -36,37 +36,6 @@ PublicAsset::register($this);
             <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
         </ul>
     </nav>
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Рыбные места', 'url' => ['/places/index']],
-            ['label' => 'Регистрация', 'url' => ['/site/signup']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
 
     <?php if (Yii::$app->user->isGuest) { ?>
         <!--Случай неавторизованного пользователя (переключение через добавление класса header-auth_active)-->

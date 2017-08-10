@@ -23,6 +23,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $price_rod
  * @property integer $price_gear
  * @property integer $region_id
+ * @property integer $camp
  */
 class Place extends ActiveRecord
 {
@@ -41,7 +42,7 @@ class Place extends ActiveRecord
     {
         return [
             [['description', 'entrance', 'boot'], 'string'],
-            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id'], 'number'],
+            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id', 'camp'], 'number'],
             [['title', 'image'], 'string', 'max' => 255],
         ];
     }
@@ -65,6 +66,7 @@ class Place extends ActiveRecord
             'price_rod' => 'Price Rod',
             'price_gear' => 'Price Gear',
             'region_id' => 'Region ID',
+            'camp' => 'Camp'
         ];
     }
 

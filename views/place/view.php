@@ -52,45 +52,57 @@ $this->title = $place->title;
             <h4 class="h4">Ловля с лодки</h4>
             <p class="special-offer-page__p p"><?= $place->boot; ?></p>
         </article>
-        <section class="special-offer-page__prices prices">
-            <h3 class="h3">Цены</h3>
-            <table class="prices__table">
-                <tr class="prices__tr">
-                    <th>Услуга</th>
-                    <th>Цена</th>
-                </tr>
-                <tr class="prices__tr prices__tr_grey">
-                    <td>Въезд на территорию базы</td>
-                    <td><?= $place->price_entry; ?> ₽ с человека</td>
-                </tr>
-                <tr class="prices__tr">
-                    <td>Прокат вёсельной лодки</td>
-                    <td><?= $place->price_rowing_boat; ?> ₽ в час</td>
-                </tr>
-                <tr class="prices__tr prices__tr_grey">
-                    <td>Прокат моторной лодки</td>
-                    <td><?= $place->price_motor_boat; ?> ₽ в час</td>
-                </tr>
-                <tr class="prices__tr">
-                    <td colspan="2">Прокат снасти</td>
-                </tr>
-                <tr class="prices__tr prices__tr_grey">
-                    <td class="tackle-rent__td">спиннинг</td>
-                    <td><?= $place->price_rod; ?> ₽</td>
-                </tr>
-                <tr class="prices__tr">
-                    <td class="tackle-rent__td">блесны, воблеры, попперы</td>
-                    <td><?= $place->price_gear; ?> ₽</td>
-                </tr>
-            </table>
-        </section>
-        <section class="special-offer-page__photogalery photogalery">
-            <h3 class="h3">Фотогалерея</h3>
-            <div class="photogalery__photo">
-                <img src="/images/photo_1.jpg" alt="">
-                <img src="/images/arrow.png" alt="" class="photogalery__arrow">
-            </div>
-        </section>
+
+        <?php if ($place->camp) { ?>
+            <section class="special-offer-page__prices prices">
+                <h3 class="h3">Цены</h3>
+                <table class="prices__table">
+                    <tr class="prices__tr">
+                        <th>Услуга</th>
+                        <th>Цена</th>
+                    </tr>
+                    <tr class="prices__tr prices__tr_grey">
+                        <td>Въезд на территорию базы</td>
+                        <td><?= $place->price_entry; ?> ₽ с человека</td>
+                    </tr>
+                    <tr class="prices__tr">
+                        <td>Прокат вёсельной лодки</td>
+                        <td><?= $place->price_rowing_boat; ?> ₽ в час</td>
+                    </tr>
+                    <tr class="prices__tr prices__tr_grey">
+                        <td>Прокат моторной лодки</td>
+                        <td><?= $place->price_motor_boat; ?> ₽ в час</td>
+                    </tr>
+                    <tr class="prices__tr">
+                        <td colspan="2">Прокат снасти</td>
+                    </tr>
+                    <tr class="prices__tr prices__tr_grey">
+                        <td class="tackle-rent__td">спиннинг</td>
+                        <td><?= $place->price_rod; ?> ₽</td>
+                    </tr>
+                    <tr class="prices__tr">
+                        <td class="tackle-rent__td">блесны, воблеры, попперы</td>
+                        <td><?= $place->price_gear; ?> ₽</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="special-offer-page__photogalery photogalery">
+                <h3 class="h3">Фотогалерея</h3>
+                <div class="photogalery__photo">
+                    <img src="/images/photo_1.jpg" alt="">
+                    <img src="/images/arrow.png" alt="" class="photogalery__arrow">
+                </div>
+            </section>
+        <?php }  else { ?>
+            <section class="place-page__choicePlaces choicePlaces">
+                <h3 class="choicePlaces__h3 h3">Возможные места для ловли</h3>
+                <div class="choicePlaces__map">
+                    <script type="text/javascript" charset="utf-8" async
+                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A08f500fbb134cc904c397590741635b4a1278c71fd2ecd33d2cf7008026d6650&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </section>
+        <?php } ?>
+
         <section class="special-offer-page__otherOpinions otherOpinions">
             <h3 class="otherOpinions__h3 h3">Другие пользователи об этом месте</h3>
             <article class="opinion">

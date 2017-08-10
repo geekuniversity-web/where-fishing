@@ -18,7 +18,7 @@ class PlaceSearch extends Place
     public function rules()
     {
         return [
-            [['id', 'rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id'], 'integer'],
+            [['id', 'rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id', 'camp'], 'integer'],
             [['title', 'description', 'image', 'entrance', 'boot'], 'safe'],
         ];
     }
@@ -67,6 +67,7 @@ class PlaceSearch extends Place
             'price_rod' => $this->price_rod,
             'price_gear' => $this->price_gear,
             'region_id' => $this->region_id,
+            'camp' => $this->camp,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

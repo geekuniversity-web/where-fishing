@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'price_rod',
             'price_gear',
             'region_id',
+            'camp',
         ],
     ]) ?>
 
