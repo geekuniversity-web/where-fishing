@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "fish".
@@ -12,7 +13,7 @@ use Yii;
  *
  * @property PlaceFish[] $placeFish
  */
-class Fish extends \yii\db\ActiveRecord
+class Fish extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -46,8 +47,9 @@ class Fish extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPlaceFish()
+    public function getPlaces()
     {
-        return $this->hasMany(PlaceFish::className(), ['fish_id' => 'id']);
+        return $this->hasMany(Place::className(), ['id' => 'place_id'])
+            ->viaTable('place_fish', ['fish_id' => 'id']);
     }
 }

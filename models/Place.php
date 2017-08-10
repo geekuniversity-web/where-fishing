@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "place".
@@ -93,6 +94,7 @@ class Place extends ActiveRecord
     {
         return $this->hasOne(Region::className(), ['id' => 'region_id']);
     }
+
     public function saveRegion($region_id)
     {
         $region = Region::findOne($region_id);
@@ -101,5 +103,33 @@ class Place extends ActiveRecord
             $this->link('region', $region);
             return true;
         }
+    }
+
+    public function getFishes()
+    {
+        return $this->hasMany(Fish::className(), ['id' => 'fish_id'])
+            ->viaTable('place_fish', ['place_id' => 'id']);
+    }
+
+    public function getSelectedFishes()
+    {
+        $selectedIds = $this->getFishes()->select('id')->asArray()->all();
+        return ArrayHelper::getColumn($selectedIds, 'id');
+    }
+    public function saveFishes($fishes)
+    {
+        if (is_array($fishes))
+        {
+            $this->clearCurrentFishes();
+            foreach($fishes as $fish_id)
+            {
+                $fish = Fish::findOne($fish_id);
+                $this->link('fish', $fish);
+            }
+        }
+    }
+    public function clearCurrentFishes()
+    {
+        PlaceFish::deleteAll(['place_id'=>$this->id]);
     }
 }
