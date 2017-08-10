@@ -15,7 +15,7 @@ class m170810_083309_create_fish_table extends Migration
         $this->createTable('fish', [
             'id' => $this->primaryKey(),
             'title' => $this->string()
-        ]);
+        ], "ENGINE=InnoDB CHARSET=utf8");
     }
 
     /**
