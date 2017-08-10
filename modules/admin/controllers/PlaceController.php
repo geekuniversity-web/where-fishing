@@ -133,11 +133,11 @@ class PlaceController extends Controller
         $model = new ImageUpload;
         if (Yii::$app->request->isPost)
         {
-            $article = $this->findModel($id);
+            $place = $this->findModel($id);
             $file = UploadedFile::getInstance($model, 'image');
-            if($article->saveImage($model->uploadFile($file, $article->image)))
+            if($place->saveImage($model->uploadFile($file, $place->image)))
             {
-                return $this->redirect(['view', 'id'=>$article->id]);
+                return $this->redirect(['view', 'id'=>$place->id]);
             }
         }
 

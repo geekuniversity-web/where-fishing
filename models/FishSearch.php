@@ -19,7 +19,7 @@ class FishSearch extends Fish
     {
         return [
             [['id'], 'integer'],
-            [['title'], 'safe'],
+            [['title', 'image'], 'safe'],
         ];
     }
 
@@ -62,7 +62,8 @@ class FishSearch extends Fish
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+        ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

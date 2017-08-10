@@ -10,6 +10,7 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property string $title
+ * @property string $image
  *
  * @property PlaceFish[] $placeFish
  */
@@ -29,7 +30,7 @@ class Fish extends ActiveRecord
     public function rules()
     {
         return [
-            [['title'], 'string', 'max' => 255],
+            [['title', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,6 +42,7 @@ class Fish extends ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'image' => 'Image',
         ];
     }
 
@@ -51,5 +53,29 @@ class Fish extends ActiveRecord
     {
         return $this->hasMany(Place::className(), ['id' => 'place_id'])
             ->viaTable('place_fish', ['fish_id' => 'id']);
+    }
+
+    // Методы работы с картинкой
+    public function saveImage($filename)
+    {
+        $this->image = $filename;
+        return $this->save(false);
+    }
+
+    public function getImage()
+    {
+        return ($this->image) ? '/images/uploads/' . $this->image : '/images/no-image-fish.png';
+    }
+
+    public function deleteImage()
+    {
+        $imageUploadModel = new ImageUpload();
+        $imageUploadModel->deleteCurrentImage($this->image);
+    }
+
+    public function beforeDelete()
+    {
+        $this->deleteImage();
+        return parent::beforeDelete();
     }
 }

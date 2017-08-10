@@ -2,12 +2,14 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\ImageUpload;
 use Yii;
 use app\models\Fish;
 use app\models\FishSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FishController implements the CRUD actions for Fish model.
@@ -120,5 +122,21 @@ class FishController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionSetImage($id)
+    {
+        $model = new ImageUpload;
+        if (Yii::$app->request->isPost)
+        {
+            $fish = $this->findModel($id);
+            $file = UploadedFile::getInstance($model, 'image');
+            if($fish->saveImage($model->uploadFile($file, $fish->image)))
+            {
+                return $this->redirect(['view', 'id'=>$fish->id]);
+            }
+        }
+
+        return $this->render('image', ['model'=>$model]);
     }
 }
