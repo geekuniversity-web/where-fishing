@@ -4,6 +4,6 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=mysql;dbname=wherefishing',
     'username' => 'fishman',
-    'password' => 'gU2017weB',
+    'password' => '',
     'charset' => 'utf8',
 ];
