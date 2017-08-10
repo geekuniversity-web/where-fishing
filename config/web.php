@@ -81,7 +81,6 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-//            'site/login'
             'rbac/*',
             'gii/*',
             'admin/*',

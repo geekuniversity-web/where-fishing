@@ -15,6 +15,7 @@ $this->title = $place->title;
 
 <div class="special-offer-page">
     <div class="special-offer-page__img">
+        <img src="<?= $place->getImage(); ?>" alt="<?= $place->title; ?>">
         <div class="special-offer-page__title">
             <h1><?= $place->title; ?></h1>
         </div>
@@ -86,13 +87,14 @@ $this->title = $place->title;
         <section class="special-offer-page__photogalery photogalery">
             <h3 class="h3">Фотогалерея</h3>
             <div class="photogalery__photo">
-                <img src="images/arrow.png" alt="" class="photogalery__arrow">
+                <img src="/images/photo_1.jpg" alt="">
+                <img src="/images/arrow.png" alt="" class="photogalery__arrow">
             </div>
         </section>
         <section class="special-offer-page__otherOpinions otherOpinions">
             <h3 class="otherOpinions__h3 h3">Другие пользователи об этом месте</h3>
             <article class="opinion">
-                <img class="opinion__img" src="images/icon_user.png" alt="icon">
+                <img class="opinion__img" src="/images/icon_user.png" alt="icon">
                 <a class="opinion__name" href="">Пётр</a>
                 <time class="opinion__date" datetime="2017-04-13">, 5 мая 2017 года</time>
                 <div class="clr"></div>
@@ -100,9 +102,9 @@ $this->title = $place->title;
                     Персонал приятный, место красивое, понравилось
                 </p>
             </article>
-            <img src="images/line.jpg" alt="">
+            <img src="/images/line.jpg" alt="">
             <article class="opinion">
-                <img class="opinion__img" src="images/icon_user.png" alt="icon">
+                <img class="opinion__img" src="/images/icon_user.png" alt="icon">
                 <a class="opinion__name" href="">Ильдар Витин</a>
                 <time class="opinion__date" datetime="2016-08-18">, 2 марта 2017 года</time>
                 <div class="clr"></div>
@@ -115,7 +117,7 @@ $this->title = $place->title;
         </section>
     </div>
     <a href="" class="advertisement">
-        <img src="images/advertisement.jpg" alt="advertisement">
+        <img src="/images/advertisement.jpg" alt="advertisement">
     </a>
     <div class="place-in-map">
         <h4 class="place-in-map__h4 h4">Место на карте</h4>

@@ -2,6 +2,9 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
 $this->title = 'Main';
 ?>
 
@@ -27,36 +30,36 @@ $this->title = 'Main';
                     Какая рыба интересует
                 </label>
                 <br>
-                <!--<input type="text" class="form-main__input form-main__input_fish"-->
-                <!--id="main-input-fish">-->
-                <select class="form-main__select_fish" id="main-select-fish"
-                        multiple placeholder="любая"
-                        data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false,
-                        "useCustomScroll": false, "multipleCompactStyle": true}'>
-                    <option value="v2">Option 1</option>
-                    <option value="v3">Option 2</option>
-                    <option value="v4">Option 3</option>
-                    <option value="v5">Option 4</option>
-                    <option value="v6">Option 5</option>
-                </select>
+                <?= Html::dropDownList('fishes', [], $fishes, [
+                        'id' => 'main-select-fish',
+                        'class'=>'form-main__select_fish',
+                        'placeholder' => 'любая',
+                        'data-jcf' => '{
+                            "wrapNative": false,
+                            "wrapNativeOnMobile": false,
+                            "useCustomScroll": false,
+                            "multipleCompactStyle": true
+                        }',
+                        'multiple' => true
+                ]) ?>
             </div>
             <div class="form-main__cont">
                 <label for="main-select-tackle" class="form-main__label">
                     На какую снасть хотите ловить
                 </label>
                 <br>
-                <!--<input type="text" class="form-main__input form-main__input_tackle"-->
-                <!--id="main-input-tackle">-->
-                <select class="form-main__select_tackle" id="main-select-tackle"
-                        multiple placeholder="неважно"
-                        data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false,
-                        "useCustomScroll": false, "multipleCompactStyle": true}'>
-                    <option value="v2">Option 1</option>
-                    <option value="v3">Option 2</option>
-                    <option value="v4">Option 3</option>
-                    <option value="v5">Option 4</option>
-                    <option value="v6">Option 5</option>
-                </select>
+                <?= Html::dropDownList('gears', [], $gears, [
+                    'id' => 'main-select-tackle',
+                    'class'=>'form-main__select_tackle',
+                    'placeholder' => 'неважно',
+                    'data-jcf' => '{
+                        "wrapNative": false, 
+                        "wrapNativeOnMobile": false,
+                        "useCustomScroll": false, 
+                        "multipleCompactStyle": true
+                    }',
+                    'multiple' => true
+                ]) ?>
             </div>
             <div class="form-main__cont form-main__cont_checkbox">
                 <input type="checkbox" class="form-main__checkbox" id="form-main-checkbox">
@@ -65,7 +68,7 @@ $this->title = 'Main';
             <input type="submit" class="form-main__input form-main__input_submit" value="Найти">
             <a href="" class="form-main__a form-main__a_best-places">Лучшие места</a>
             <div class="form-main__special-offer">
-                <img class="form-main__img" src="images/special_offer.png" alt="">
+                <img class="form-main__img" src="/images/special_offer.png" alt="">
                 <a href="" class="form-main__a form-main__a_offer">Специальные предложения</a>
             </div>
             <div class="clr"></div>
@@ -73,21 +76,21 @@ $this->title = 'Main';
         <section class="main-page__special-offer special-offer">
             <h3 class="special-offer__h3 h3">Специальные предложения</h3>
             <div href="" class="special-offer__offer offer">
-                <img src="images/dubki.jpg" alt="" class="offer__img">
+                <img src="/images/dubki.jpg" alt="" class="offer__img">
                 <h5><a href="" class="offer__title">Рыболовная база &laquo;Дубки&raquo;</a></h5>
                 <p class="offer__p">
                     Гостиница в тихом месте, аренда лодки
                 </p>
             </div>
             <div href="" class="special-offer__offer offer">
-                <img src="images/vantolovo.jpg" alt="" class="offer__img">
+                <img src="/images/vantolovo.jpg" alt="" class="offer__img">
                 <h5><a href="" class="offer__title">Гостиница в Вантолово</a></h5>
                 <p class="offer__p">
                     Всё, что нужно рыболову
                 </p>
             </div>
             <div href="" class="special-offer__offer offer">
-                <img src="images/Leska_i_nazgivka.jpg" alt="" class="offer__img">
+                <img src="/images/Leska_i_nazgivka.jpg" alt="" class="offer__img">
                 <h5><a href="" class="offer__title">База &laquo;Леска и наживка&raquo;</a></h5>
                 <p class="offer__p">
                     Рыбалка - это модно
@@ -96,13 +99,13 @@ $this->title = 'Main';
         </section>
     </div>
     <a href="" class="advertisement">
-        <img src="images/advertisement.jpg" alt="advertisement">
+        <img src="/images/advertisement.jpg" alt="advertisement">
     </a>
     <div class="clr"></div>
     <div class="main-page__new-articles new-articles">
         <h3 class="new-articles__h3 h3">Свежие статьи</h3>
         <div class="main-page__article article">
-            <img src="images/artile_1.jpg" alt="" class="article__img">
+            <img src="/images/artile_1.jpg" alt="" class="article__img">
             <h4>
                 <a href="" class="article__title">
                     Фоторыбалка: какой фотоаппарат взять с собой
@@ -115,7 +118,7 @@ $this->title = 'Main';
             </p>
         </div>
         <div class="main-page__article article">
-            <img src="images/artile_2.jpg" alt="" class="article__img">
+            <img src="/images/artile_2.jpg" alt="" class="article__img">
             <h4>
                 <a href="" class="article__title">
                     Имеет ли смысл рыбачить в городе
@@ -135,7 +138,7 @@ $this->title = 'Main';
                     Как я рыбачил в приозёрске
                 </a>
             </h4>
-            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <img src="/images/icon_user.png" alt="" class="forum-theme__img">
             <span class="forum-theme__inf">craver145 | 12 сообщений в теме за последнюю неделю</span>
         </article>
         <br>
@@ -146,7 +149,7 @@ $this->title = 'Main';
                     я девушка и хочу рыбачить) с чего начать
                 </a>
             </h4>
-            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <img src="/images/icon_user.png" alt="" class="forum-theme__img">
             <span class="forum-theme__inf">Natalia_ | 10 сообщений в теме за последнюю неделю</span>
         </article>
         <br>
@@ -157,7 +160,7 @@ $this->title = 'Main';
                     Некоторые мысли про ловлю карпа
                 </a>
             </h4>
-            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <img src="/images/icon_user.png" alt="" class="forum-theme__img">
             <span class="forum-theme__inf">Иван Полинов | 5 сообщений в теме за последнюю неделю</span>
         </article>
         <br>
@@ -168,7 +171,7 @@ $this->title = 'Main';
                     Как я удил в Ивангороде
                 </a>
             </h4>
-            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <img src="/images/icon_user.png" alt="" class="forum-theme__img">
             <span class="forum-theme__inf">Бугров | 4 сообщений за последнюю неделю</span>
         </article>
     </div>

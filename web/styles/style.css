@@ -780,14 +780,14 @@ body {
   .special-offer-page__img {
     width: 958px;
     height: 320px;
-    background-image: url(../images/karasiovo.jpg);
-    overflow: auto; }
+    position: relative; }
   .special-offer-page__title {
     width: 296px;
     height: 52px;
     background-color: #cccfcf;
-    margin-left: 22px;
-    margin-top: 246px;
+    position: absolute;
+    left: 22px;
+    top: 246px;
     font-family: MyriadProBold;
     color: #000000;
     font-size: 17px;
@@ -839,13 +839,12 @@ body {
 .photogalery__photo {
   width: 626px;
   height: 344px;
-  background-image: url(../images/photo_1.jpg);
-  margin-top: 18px;
-  box-sizing: border-box;
-  padding-top: 115px;
-  padding-right: 28px; }
+  position: relative;
+  box-sizing: border-box; }
 .photogalery__arrow {
-  float: right; }
+  position: absolute;
+  top: 115px;
+  left: 544px; }
   .photogalery__arrow:hover {
     cursor: pointer; }
 

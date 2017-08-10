@@ -2,10 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\Fish;
+use app\models\Gear;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\Signup;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -63,7 +66,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $fishes = ArrayHelper::map(Fish::find()->all(), 'id', 'title');
+        $gears = ArrayHelper::map(Gear::find()->all(), 'id', 'title');
+        if(Yii::$app->request->isPost)
+        {
+            $fishes = Yii::$app->request->post('fishes');
+            $gears = Yii::$app->request->post('gears');
+            return $this->redirect(['index']);
+        }
+
+        return $this->render('index', [
+            'fishes' => $fishes,
+            'gears' => $gears,
+        ]);
     }
 
     /**

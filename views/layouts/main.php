@@ -1,12 +1,13 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
 use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\web\View;
 use yii\widgets\Breadcrumbs;
 
 PublicAsset::register($this);
@@ -56,7 +57,7 @@ PublicAsset::register($this);
                 </ul>
             </div>
             <div class="header-auth__avatar avatar">
-                <img src="images/icon_user.png" alt="" class="avatar__img">
+                <img src="/images/icon_user.png" alt="" class="avatar__img">
             </div>
         </div>
     <?php } ?>
@@ -69,7 +70,7 @@ PublicAsset::register($this);
 <?php $this->registerJs('
         $(function() {
             jcf.replaceAll();
-        });');?>
+        });', View::POS_READY);?>
 <script>
     $(document).ready(function(){
         var editor = CKEDITOR.replaceAll();
