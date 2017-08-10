@@ -137,4 +137,35 @@ class Place extends ActiveRecord
     {
         PlaceFish::deleteAll(['place_id'=>$this->id]);
     }
+
+    // Методы работы со снастями
+    public function getGears()
+    {
+        return $this->hasMany(Gear::className(), ['id' => 'gear_id'])
+            ->viaTable('place_gear', ['place_id' => 'id']);
+    }
+
+    public function getSelectedGears()
+    {
+        $selectedIds = $this->getGears()->select('id')->asArray()->all();
+        return ArrayHelper::getColumn($selectedIds, 'id');
+    }
+
+    public function saveGears($gears)
+    {
+        if (is_array($gears))
+        {
+            $this->clearCurrentGears();
+            foreach($gears as $gear_id)
+            {
+                $gear = Gear::findOne($gear_id);
+                $this->link('gears', $gear);
+            }
+        }
+    }
+
+    public function clearCurrentGears()
+    {
+        PlaceGear::deleteAll(['place_id'=>$this->id]);
+    }
 }

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Fish;
+use app\models\Gear;
 
 /**
- * FishSearch represents the model behind the search form about `app\models\Fish`.
+ * GearSearch represents the model behind the search form about `app\models\Gear`.
  */
-class FishSearch extends Fish
+class GearSearch extends Gear
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class FishSearch extends Fish
      */
     public function search($params)
     {
-        $query = Fish::find();
+        $query = Gear::find();
 
         // add conditions that should always apply here
 

@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Place', 'url' => ['/admin/place/index']],
             ['label' => 'Region', 'url' => ['/admin/region/index']],
             ['label' => 'Fish', 'url' => ['/admin/fish/index']],
+            ['label' => 'Gear', 'url' => ['/admin/gear/index']],
             ['label' => 'RBAC', 'url' => ['/rbac/default/index']],
         ],
     ]);

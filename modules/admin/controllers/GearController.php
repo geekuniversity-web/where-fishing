@@ -3,16 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\Fish;
-use app\models\FishSearch;
+use app\models\Gear;
+use app\models\GearSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FishController implements the CRUD actions for Fish model.
+ * GearController implements the CRUD actions for Gear model.
  */
-class FishController extends Controller
+class GearController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class FishController extends Controller
     }
 
     /**
-     * Lists all Fish models.
+     * Lists all Gear models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FishSearch();
+        $searchModel = new GearSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class FishController extends Controller
     }
 
     /**
-     * Displays a single Fish model.
+     * Displays a single Gear model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class FishController extends Controller
     }
 
     /**
-     * Creates a new Fish model.
+     * Creates a new Gear model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Fish();
+        $model = new Gear();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class FishController extends Controller
     }
 
     /**
-     * Updates an existing Fish model.
+     * Updates an existing Gear model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class FishController extends Controller
     }
 
     /**
-     * Deletes an existing Fish model.
+     * Deletes an existing Gear model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class FishController extends Controller
     }
 
     /**
-     * Finds the Fish model based on its primary key value.
+     * Finds the Gear model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Fish the loaded model
+     * @return Gear the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Fish::findOne($id)) !== null) {
+        if (($model = Gear::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

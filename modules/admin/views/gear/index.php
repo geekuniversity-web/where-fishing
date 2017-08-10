@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\FishSearch */
+/* @var $searchModel app\models\GearSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Fish';
+$this->title = 'Gears';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fish-index">
+<div class="gear-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Fish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Gear', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

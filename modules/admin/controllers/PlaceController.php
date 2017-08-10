@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Fish;
+use app\models\Gear;
 use app\models\ImageUpload;
 use app\models\Region;
 use Yii;
@@ -178,6 +179,24 @@ class PlaceController extends Controller
         return $this->render('fish', [
             'selectedFishes'=>$selectedFishes,
             'fishes'=>$fishes
+        ]);
+    }
+
+    public function actionSetGears($id)
+    {
+        $place = $this->findModel($id);
+        $selectedGears = $place->getSelectedGears();
+        $gears = ArrayHelper::map(Gear::find()->all(), 'id', 'title');
+        if(Yii::$app->request->isPost)
+        {
+            $gears = Yii::$app->request->post('gears');
+            $place->saveGears($gears);
+            return $this->redirect(['view', 'id'=>$place->id]);
+        }
+
+        return $this->render('gear', [
+            'selectedGears'=>$selectedGears,
+            'gears'=>$gears
         ]);
     }
 }

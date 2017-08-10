@@ -6,21 +6,21 @@ use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "fish".
+ * This is the model class for table "gear".
  *
  * @property integer $id
  * @property string $title
  *
- * @property PlaceFish[] $placeFish
+ * @property PlaceGear[] $placeGears
  */
-class Fish extends ActiveRecord
+class Gear extends ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'fish';
+        return 'gear';
     }
 
     /**
@@ -50,6 +50,6 @@ class Fish extends ActiveRecord
     public function getPlaces()
     {
         return $this->hasMany(Place::className(), ['id' => 'place_id'])
-            ->viaTable('place_fish', ['fish_id' => 'id']);
+            ->viaTable('place_gear', ['place_id' => 'id']);
     }
 }
