@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "place".
@@ -21,7 +22,7 @@ use Yii;
  * @property integer $price_gear
  * @property integer $region_id
  */
-class Place extends \yii\db\ActiveRecord
+class Place extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -63,5 +64,28 @@ class Place extends \yii\db\ActiveRecord
             'price_gear' => 'Price Gear',
             'region_id' => 'Region ID',
         ];
+    }
+
+    public function saveImage($filename)
+    {
+        $this->image = $filename;
+        return $this->save(false);
+    }
+
+    public function getImage()
+    {
+        return ($this->image) ? '/images/uploads/' . $this->image : '/images/no-image.png';
+    }
+
+    public function deleteImage()
+    {
+        $imageUploadModel = new ImageUpload();
+        $imageUploadModel->deleteCurrentImage($this->image);
+    }
+
+    public function beforeDelete()
+    {
+        $this->deleteImage();
+        return parent::beforeDelete();
     }
 }

@@ -26,9 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
+            'region_id',
             'description:ntext',
-            'image',
             'entrance:ntext',
+            [
+                'format' => 'html',
+                'label' => 'Image',
+                'value' => function($data){
+                    return Html::img($data->getImage(), ['width'=>200]);
+                }
+            ],
             // 'boot:ntext',
             // 'rating',
             // 'price_entry',
@@ -36,7 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'price_motor_boat',
             // 'price_rod',
             // 'price_gear',
-            // 'region_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
