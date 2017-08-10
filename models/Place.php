@@ -19,6 +19,7 @@ use Yii;
  * @property integer $price_motor_boat
  * @property integer $price_rod
  * @property integer $price_gear
+ * @property integer $region_id
  */
 class Place extends \yii\db\ActiveRecord
 {
@@ -37,7 +38,7 @@ class Place extends \yii\db\ActiveRecord
     {
         return [
             [['description', 'entrance', 'boot'], 'string'],
-            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear'], 'integer'],
+            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
         ];
     }
@@ -60,6 +61,7 @@ class Place extends \yii\db\ActiveRecord
             'price_motor_boat' => 'Price Motor Boat',
             'price_rod' => 'Price Rod',
             'price_gear' => 'Price Gear',
+            'region_id' => 'Region ID',
         ];
     }
 }

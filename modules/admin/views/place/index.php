@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'price_motor_boat',
             // 'price_rod',
             // 'price_gear',
+            // 'region_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
