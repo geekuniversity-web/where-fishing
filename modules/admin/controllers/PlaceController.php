@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Fish;
 use app\models\ImageUpload;
 use app\models\Region;
 use Yii;
@@ -159,6 +160,24 @@ class PlaceController extends Controller
             'place'=>$place,
             'selectedRegion'=>$selectedRegion,
             'regions'=>$regions
+        ]);
+    }
+
+    public function actionSetFishes($id)
+    {
+        $place = $this->findModel($id);
+        $selectedFishes = $place->getSelectedFishes();
+        $fishes = ArrayHelper::map(Fish::find()->all(), 'id', 'title');
+        if(Yii::$app->request->isPost)
+        {
+            $fishes = Yii::$app->request->post('fishes');
+            $place->saveFishes($fishes);
+            return $this->redirect(['view', 'id'=>$place->id]);
+        }
+
+        return $this->render('fish', [
+            'selectedFishes'=>$selectedFishes,
+            'fishes'=>$fishes
         ]);
     }
 }

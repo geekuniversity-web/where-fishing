@@ -67,6 +67,7 @@ class Place extends ActiveRecord
         ];
     }
 
+    // Методы работы с картинкой
     public function saveImage($filename)
     {
         $this->image = $filename;
@@ -90,6 +91,7 @@ class Place extends ActiveRecord
         return parent::beforeDelete();
     }
 
+    // Методы работы с регионом
     public function getRegion()
     {
         return $this->hasOne(Region::className(), ['id' => 'region_id']);
@@ -105,6 +107,7 @@ class Place extends ActiveRecord
         }
     }
 
+    // Методы работы с рыбой
     public function getFishes()
     {
         return $this->hasMany(Fish::className(), ['id' => 'fish_id'])
@@ -116,6 +119,7 @@ class Place extends ActiveRecord
         $selectedIds = $this->getFishes()->select('id')->asArray()->all();
         return ArrayHelper::getColumn($selectedIds, 'id');
     }
+
     public function saveFishes($fishes)
     {
         if (is_array($fishes))
@@ -124,10 +128,11 @@ class Place extends ActiveRecord
             foreach($fishes as $fish_id)
             {
                 $fish = Fish::findOne($fish_id);
-                $this->link('fish', $fish);
+                $this->link('fishes', $fish);
             }
         }
     }
+
     public function clearCurrentFishes()
     {
         PlaceFish::deleteAll(['place_id'=>$this->id]);
