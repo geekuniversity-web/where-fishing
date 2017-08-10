@@ -3,9 +3,11 @@
 namespace app\modules\admin\controllers;
 
 use app\models\ImageUpload;
+use app\models\Region;
 use Yii;
 use app\models\Place;
 use app\models\PlaceSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -138,5 +140,25 @@ class PlaceController extends Controller
         }
 
         return $this->render('image', ['model'=>$model]);
+    }
+
+    public function actionSetRegion($id)
+    {
+        $place = $this->findModel($id);
+        $selectedRegion = $place->region->id;
+        $regions = ArrayHelper::map(Region::find()->all(), 'id', 'title');
+        if(Yii::$app->request->isPost)
+        {
+            $region = Yii::$app->request->post('region');
+            if($place->saveRegion($region))
+            {
+                return $this->redirect(['view', 'id'=>$place->id]);
+            }
+        }
+        return $this->render('region', [
+            'place'=>$place,
+            'selectedRegion'=>$selectedRegion,
+            'regions'=>$regions
+        ]);
     }
 }

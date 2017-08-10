@@ -39,7 +39,7 @@ class Place extends ActiveRecord
     {
         return [
             [['description', 'entrance', 'boot'], 'string'],
-            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id'], 'integer'],
+            [['rating', 'price_entry', 'price_rowing_boat', 'price_motor_boat', 'price_rod', 'price_gear', 'region_id'], 'number'],
             [['title', 'image'], 'string', 'max' => 255],
         ];
     }
@@ -87,5 +87,19 @@ class Place extends ActiveRecord
     {
         $this->deleteImage();
         return parent::beforeDelete();
+    }
+
+    public function getRegion()
+    {
+        return $this->hasOne(Region::className(), ['id' => 'region_id']);
+    }
+    public function saveRegion($region_id)
+    {
+        $region = Region::findOne($region_id);
+        if($region != null)
+        {
+            $this->link('region', $region);
+            return true;
+        }
     }
 }
