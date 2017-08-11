@@ -66,16 +66,17 @@ PublicAsset::register($this);
 <?= $content ?>
 
 <?php $this->endBody() ?>
-<?php $this->registerJsFile('/ckeditor/ckeditor.js');?>
+<?php //$this->registerJsFile('/ckeditor/ckeditor.js');?>
 <?php $this->registerJs('
         $(function() {
             jcf.replaceAll();
         });', View::POS_READY);?>
-<script>
+<!--<script>
     $(document).ready(function(){
         var editor = CKEDITOR.replaceAll();
+
     })
-</script>
+</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>
