@@ -33,7 +33,7 @@ PublicAsset::register($this);
             <li class="nav__li"><a class="nav__a" href="/place/index">Места</a></li>
             <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
             <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
-            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+            <li class="nav__li"><a class="nav__a" href="/article/index">Статьи</a></li>
         </ul>
     </nav>
 

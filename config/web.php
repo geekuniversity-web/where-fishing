@@ -85,6 +85,7 @@ $config = [
             'gii/*',
             'admin/*',
             'place/*',
+            'article/*',
         ]
     ],
 ];
