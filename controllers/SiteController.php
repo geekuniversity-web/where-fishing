@@ -2,10 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\Article;
+use app\models\Fish;
+use app\models\Gear;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\Signup;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -63,7 +67,22 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $fishes = ArrayHelper::map(Fish::find()->all(), 'id', 'title');
+        $gears = ArrayHelper::map(Gear::find()->all(), 'id', 'title');
+        if(Yii::$app->request->isPost)
+        {
+            $fishes = Yii::$app->request->post('fishes');
+            $gears = Yii::$app->request->post('gears');
+            return $this->redirect(['index']);
+        }
+
+        $recent_articles =  Article::getRecent();
+
+        return $this->render('index', [
+            'fishes' => $fishes,
+            'gears' => $gears,
+            'recent_articles' => $recent_articles,
+        ]);
     }
 
     /**
@@ -97,34 +116,6 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 
     public function actionSignup()

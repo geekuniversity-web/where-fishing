@@ -1,15 +1,16 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
+use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\web\View;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
 
-AppAsset::register($this);
+PublicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,55 +26,57 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Рыбные места', 'url' => ['/places/index']],
-            ['label' => 'Регистрация', 'url' => ['/site/signup']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+<header class="header">
+    <a class="header__logo logo" href="<?= Yii::$app->homeUrl; ?>">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="/place/index">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="/article/index">Статьи</a></li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
-    </div>
-</div>
+    <?php if (Yii::$app->user->isGuest) { ?>
+        <!--Случай неавторизованного пользователя (переключение через добавление класса header-auth_active)-->
+        <div class="header__header-auth header-auth header-auth_active">
+            <a href="/site/login" class="header-auth__login">Вход</a>
+            <br>
+            <a href="/site/signup" class="header-auth__registration">Регистрация</a>
+        </div>
+    <?php } else { ?>
+        <!--Случай авторизованного пользователя (переключение через добавление класса header-auth_active)-->
+        <div class="header__header-auth header-auth header-auth_active">
+            <div class="header__cont">
+                <div class="header-auth__name"><?= Yii::$app->user->identity->username ?></div>
+                <ul class="header-auth__panel">
+                    <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                    <!--Появление второго элемента li осуществляется добавлением в него класса -->
+                    <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a></li>
+                    <li class="header-auth__li"><a href="/site/logout" class="header-auth__logout">выйти</a></li>
+                </ul>
+            </div>
+            <div class="header-auth__avatar avatar">
+                <img src="/images/icon_user.png" alt="" class="avatar__img">
+            </div>
+        </div>
+    <?php } ?>
+</header>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+<?= $content ?>
 
 <?php $this->endBody() ?>
+<?php //$this->registerJsFile('/ckeditor/ckeditor.js');?>
+<?php $this->registerJs('
+        $(function() {
+            jcf.replaceAll();
+        });', View::POS_READY);?>
+<!--<script>
+    $(document).ready(function(){
+        var editor = CKEDITOR.replaceAll();
+
+    })
+</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>

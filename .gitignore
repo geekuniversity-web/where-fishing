@@ -1,5 +1,5 @@
 # phpstorm project files
-.idea
+.idea/
 
 # netbeans project files
 nbproject
@@ -28,3 +28,6 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
+
+templates/
+config/app-config.ini
