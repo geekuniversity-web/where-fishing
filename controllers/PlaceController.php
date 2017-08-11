@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Article;
 use app\models\Fish;
 use app\models\Place;
 use mdm\admin\models\form\Login;
@@ -78,11 +79,13 @@ class PlaceController extends Controller
         $place = Place::findOne($id);
         $fishes = $place->getAllFishes();
         $gears = $place->getAllGears();
+        $popular_articles = Article::getPopular();
 
         return $this->render('view', [
             'place' => $place,
             'fishes' => $fishes,
             'gears' => $gears,
+            'popular_articles' => $popular_articles,
         ]);
     }
 }

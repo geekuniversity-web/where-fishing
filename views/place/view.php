@@ -4,11 +4,14 @@
  *  @var $place Place
  *  @var $fish Fish
  *  @var $gear Gear
+ *  @var $article Article
  */
 
+use app\models\Article;
 use app\models\Fish;
 use app\models\Gear;
 use app\models\Place;
+use yii\helpers\Url;
 
 $this->title = $place->title;
 ?>
@@ -156,12 +159,13 @@ $this->title = $place->title;
     <div class="popularArticles">
         <h4 class="popularArticles__h4 h4">Популярные статьи</h4>
         <ul>
-            <li class="popularArticles__li"><a href="" class="popularArticles__a">Фоторыбалка: какой
-                    фотоаппарат взять с собой</a></li>
-            <li class="popularArticles__li"><a href="" class="popularArticles__a">Имеет ли смысл рыбачить
-                    в городе</a></li>
-            <li class="popularArticles__li"><a href="" class="popularArticles__a">В Сестрорецком разливе
-                    построят лососёвую ферму</a></li>
+            <?php foreach ($popular_articles as $article) { ?>
+                <li class="popularArticles__li">
+                    <a href="<?= Url::toRoute(['article/view', 'id' => $article->id]) ?>" class="popularArticles__a">
+                        <?= $article->title; ?>
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
     </div>
     <div class="clr"></div>
