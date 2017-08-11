@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Article;
 use app\models\Fish;
 use app\models\Gear;
 use mdm\admin\models\form\Login;
@@ -75,9 +76,12 @@ class SiteController extends Controller
             return $this->redirect(['index']);
         }
 
+        $recent_articles =  Article::getRecent();
+
         return $this->render('index', [
             'fishes' => $fishes,
             'gears' => $gears,
+            'recent_articles' => $recent_articles,
         ]);
     }
 

@@ -1,8 +1,13 @@
 <?php
 
-/* @var $this yii\web\View */
+/** @var $this yii\web\View
+ *  @var $article Article
+ */
 
+use app\models\Article;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 $this->title = 'Main';
@@ -102,34 +107,28 @@ $this->title = 'Main';
         <img src="/images/advertisement.jpg" alt="advertisement">
     </a>
     <div class="clr"></div>
+
     <div class="main-page__new-articles new-articles">
         <h3 class="new-articles__h3 h3">Свежие статьи</h3>
-        <div class="main-page__article article">
-            <img src="/images/artile_1.jpg" alt="" class="article__img">
-            <h4>
-                <a href="" class="article__title">
-                    Фоторыбалка: какой фотоаппарат взять с собой
-                </a>
-            </h4>
-            <p class="article__p">
-                Может показаться, что рыбалка - занятие не особенно зрелищное.
-                Но если взять с собой правильную фотокамеру и следовать нескольким советам,
-                можно...
-            </p>
-        </div>
-        <div class="main-page__article article">
-            <img src="/images/artile_2.jpg" alt="" class="article__img">
-            <h4>
-                <a href="" class="article__title">
-                    Имеет ли смысл рыбачить в городе
-                </a>
-            </h4>
-            <p class="article__p">
-                Многие рыбаки даже не пробуют рыбачить в городе, полагая, что это дело гиблое.
-                Вот что об этом думают наши собеседники.
-            </p>
-        </div>
+        <?php foreach ($recent_articles as $article) { ?>
+            <div class="main-page__article article">
+                <?= Html::img($article->getImage(), [
+                    'width' => 200,
+                    'class' => 'article__img',
+                    'alt' => ''
+                ]); ?>
+                <h4>
+                    <a href="<?= Url::toRoute(['article/view', 'id' => $article->id]); ?>" class="article__title">
+                        <?= $article->title; ?>
+                    </a>
+                </h4>
+                <p class="article__p">
+                    <?= StringHelper::truncate($article->description, 120, '...') ?>
+                </p>
+            </div>
+        <?php } ?>
     </div>
+
     <div class="main-page__forum-popular forum-popular">
         <h3 class="forum-popular__h3 h3">Популярное на форуме</h3>
         <article class="forum-popular__forum-theme forum-theme">

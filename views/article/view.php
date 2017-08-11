@@ -5,20 +5,24 @@
  */
 
 use app\models\Article;
+use yii\helpers\Html;
 
 $this->title = $article->title;
 ?>
 
 <div class="special-offer-page">
     <div class="special-offer-page__img">
-        <img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?>">
+        <?= Html::img($article->getImage(), [
+            'width' => '100%',
+            'alt' => $article->title
+        ]); ?>
         <div class="special-offer-page__title">
             <h1><?= $article->title; ?></h1>
         </div>
     </div>
     <div class="special-offer-page__container">
 
-        <?= $article->description; ?>
+        <?= $article->content; ?>
 
         <div class="clr"></div>
 

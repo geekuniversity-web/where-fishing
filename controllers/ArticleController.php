@@ -78,6 +78,8 @@ class ArticleController extends Controller
     {
         $article = Article::findOne($id);
 
+        $article->viewedCounter();
+
         return $this->render('view', [
             'article' => $article,
         ]);
