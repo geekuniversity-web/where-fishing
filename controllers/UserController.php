@@ -3,13 +3,12 @@
 namespace app\controllers;
 
 use app\models\Article;
-use app\models\Comments;
 use app\models\Fish;
 use app\models\Place;
+use app\models\Users;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\Signup;
 use Yii;
-use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -17,7 +16,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class ArticleController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritdoc
@@ -66,35 +65,8 @@ class ArticleController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($id)
     {
-        $data = Article::getAll();
-
-        return $this->render('index', [
-            'articles' => $data['articles'],
-            'pagination' => $data['pagination']
-        ]);
-    }
-
-    public function actionView($id)
-    {
-        $article = Article::findOne($id);
-
-        //Вот это почему-то не работает О_о кому интересно можете попробовать разобраться
-        //$comments = Comments::find()->where(['article_id' => $id])->leftJoin('user', 'comments.user_id = user.id')->orderBy(['date'=>SORT_DESC])->asArray()->all();
-        $query = new Query();
-        $query->from('comments')
-            ->leftJoin('user', 'comments.user_id = user.id')
-            ->orderBy(['date'=>SORT_DESC]);
-
-        $command = $query->createCommand();
-        $comments = $command->queryAll();
-
-        $article->viewedCounter();
-
-        return $this->render('view', [
-            'article' => $article,
-            'comments' => $comments
-        ]);
+        echo "This is a private page of the ". Users::findOne($id)->username;
     }
 }

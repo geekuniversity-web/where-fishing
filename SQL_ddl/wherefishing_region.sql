@@ -1,2 +1,2 @@
-INSERT INTO wherefishing.region (title) VALUES ('Ленинградская область');
-INSERT INTO wherefishing.region (title) VALUES ('Московская область');
+INSERT INTO fishing.region (title) VALUES ('Ленинградская область');
+INSERT INTO fishing.region (title) VALUES ('Московская область');

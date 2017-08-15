@@ -1,4 +1,4 @@
-INSERT INTO wherefishing.gear (title) VALUES ('блесна');
-INSERT INTO wherefishing.gear (title) VALUES ('воблер');
-INSERT INTO wherefishing.gear (title) VALUES ('поппер');
-INSERT INTO wherefishing.gear (title) VALUES ('живец');
+INSERT INTO fishing.gear (title) VALUES ('блесна');
+INSERT INTO fishing.gear (title) VALUES ('воблер');
+INSERT INTO fishing.gear (title) VALUES ('поппер');
+INSERT INTO fishing.gear (title) VALUES ('живец');

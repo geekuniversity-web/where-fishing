@@ -1,4 +1,4 @@
-INSERT INTO wherefishing.place (title, description, image, entrance, boot, rating, price_entry, price_rowing_boat, price_motor_boat, price_rod, price_gear, region_id, camp) VALUES ('База «Карасёво»', '<p>Рыболовная база Карасёво находится в непосредственной близости от уловистых мест. Здесь хорошо ловится плотва, окунь, щука, лещ и судак. На базе Карасёво можно остановиться в комфортных условиях и по доступной цене.</p>
+INSERT INTO fishing.place (title, description, image, entrance, boot, rating, price_entry, price_rowing_boat, price_motor_boat, price_rod, price_gear, region_id, camp) VALUES ('База «Карасёво»', '<p>Рыболовная база Карасёво находится в непосредственной близости от уловистых мест. Здесь хорошо ловится плотва, окунь, щука, лещ и судак. На базе Карасёво можно остановиться в комфортных условиях и по доступной цене.</p>
 
 <p>&nbsp;</p>
 
@@ -18,7 +18,7 @@ INSERT INTO wherefishing.place (title, description, image, entrance, boot, ratin
 ', '06c4aa5249c562c0fc01e443a2d8a5ab.jpg', '<p>на самой базе есть пристань и пара песчаных пляжей. В окрестностях в основном трявянистый берег.</p>
 ', '<p>много возможностей для ловли с лодки</p>
 ', 1, 500, 400, 700, 200, 100, 1, 1);
-INSERT INTO wherefishing.place (title, description, image, entrance, boot, rating, price_entry, price_rowing_boat, price_motor_boat, price_rod, price_gear, region_id, camp) VALUES ('Река «Чёрная»', '<p>Медленная, мелкая, извилистая река в Ленинградской области. Подходит для ловли мелкой рыбы.</p>
+INSERT INTO fishing.place (title, description, image, entrance, boot, rating, price_entry, price_rowing_boat, price_motor_boat, price_rod, price_gear, region_id, camp) VALUES ('Река «Чёрная»', '<p>Медленная, мелкая, извилистая река в Ленинградской области. Подходит для ловли мелкой рыбы.</p>
 ', '', '<p>зависит от места, в основном травянистые берега. На реке есть мосты (на карте ниже)</p>
 ', '<p>река очень мелкая и узкая, рыбачить с лодки, вероятно, нет смысла</p>
 ', 1, null, null, null, null, null, 1, 0);
