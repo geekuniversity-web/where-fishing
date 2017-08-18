@@ -932,17 +932,17 @@ body {
   padding-top: 74px; }
   .regPage__bg-reg {
     width: 486px;
-    height: 505px;
+    height: 538px;
     background-color: #fff;
     position: relative;
-    top: -505px;
+    top: -683px;
     z-index: 0;
     opacity: 0.8; }
 
 .reg-form {
   box-shadow: 0px 0px 38px 0px rgba(0, 0, 0, 0.4);
   width: 486px;
-  height: 505px;
+  height: 538px;
   box-sizing: border-box;
   padding-top: 39px;
   padding-left: 21px;
