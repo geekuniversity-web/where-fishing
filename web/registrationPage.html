@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<header class="header">
+    <a class="header__logo logo" href="mainPage.html">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+        </ul>
+    </nav>
+    <!--Случай авторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth">
+        <div class="header__cont">
+            <div class="header-auth__name">Виктор Админов</div>
+            <ul class="header-auth__panel">
+                <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                <!--Появление второго элемента li осуществляется добавлением в него
+                класса header-auth__li_admin-->
+                <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a>
+                </li>
+                <li class="header-auth__li"><a href="" class="header-auth__logout">выйти</a></li>
+            </ul>
+        </div>
+        <div class="header-auth__avatar avatar">
+            <img src="images/icon_user.png" alt="" class="avatar__img">
+        </div>
+    </div>
+    <!--Случай неавторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth header-auth_active">
+        <div class="header-auth__login">
+            <div class="header-auth__login-text">Вход</div>
+            <form class="header-auth__sign-in sign-in">
+                <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                <br>
+                <input id="header-sign-in-login" type="text" class="sign-in__input">
+                <br>
+                <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                <br>
+                <input id="header-sign-in-password" type="password" class="sign-in__input">
+                <br>
+                <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox">
+                <label for="header-sign-in-checkbox">Запомнить меня</label>
+                <br>
+                <input type="submit" class="sign-in__submit" value="Войти">
+            </form>
+        </div>
+        <br>
+        <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+        <a href="" class="header-auth__registration header-auth__registration_del">Регистрация</a>
+    </div>
+</header>
+<div class="regPage">
+    <form action="" class="reg-form">
+        <h2 class="reg-form__h2">Регистрация</h2>
+        <p class="reg-form__p reg-form__label">
+            Регистрация позволит Вам оставлять на сайте сообщения, оценивать и добавлять места,
+            а также получать скидки при покупке или заказе услуг у наших партнёров.
+        </p>
+        <div class="reg-form__cont">
+            <label for="reg-form-login" class="reg-form__label">Логин</label>
+            <input type="text" id="reg-form-login" class="reg-form__input">
+            <p class="reg-form__login-label">
+                Логин может содержать русские и английские буквы, цифры и пробелы.
+                Будет выводиться на сайте
+            </p>
+        </div>
+        <div class="reg-form__cont">
+            <label for="reg-form-address" class="reg-form__label">Адрес электронной почты</label>
+            <input type="email" id="reg-form-address" class="reg-form__input">
+        </div>
+        <div class="clr"></div>
+        <div class="reg-form__cont">
+            <label for="reg-form-password" class="reg-form__label">Пароль</label>
+            <input type="password" id="reg-form-password" class="reg-form__input">
+        </div>
+        <div class="reg-form__cont">
+            <label for="reg-form-password-again" class="reg-form__label">Пароль ещё раз</label>
+            <input type="password" id="reg-form-password-again" class="reg-form__input">
+        </div>
+        <div class="clr"></div>
+        <p class="reg-form__label reg-form__label_final">
+            Все поля являются обязательными для заполнения
+        </p>
+        <input type="submit" value="Зарегистрироваться" class="reg-form__submit">
+    </form>
+    <div class="regPage__bg-reg"></div>
+
+</div>
+</body>
+</html>
