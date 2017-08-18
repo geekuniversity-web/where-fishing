@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="styles/demo.css">-->
+    <link rel="stylesheet" href="styles/theme-minimal/jcf.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jcf.js"></script>
+    <script src="js/jcf.select.js"></script>
+    <script>
+        $(function() {
+            jcf.replaceAll();
+        });
+    </script>
+</head>
+<body>
+<header class="header">
+    <a class="header__logo logo" href="">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+        </ul>
+    </nav>
+    <!--Случай авторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth">
+        <div class="header__cont">
+            <div class="header-auth__name">Виктор Админов</div>
+            <ul class="header-auth__panel">
+                <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                <!--Появление второго элемента li осуществляется добавлением в него
+                класса header-auth__li_admin-->
+                <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a></li>
+                <li class="header-auth__li"><a href="" class="header-auth__logout">выйти</a></li>
+            </ul>
+        </div>
+        <div class="header-auth__avatar avatar">
+            <img src="images/icon_user.png" alt="" class="avatar__img">
+        </div>
+    </div>
+    <!--Случай неавторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth header-auth_active">
+        <div class="header-auth__login">
+            <div class="header-auth__login-text">Вход</div>
+            <form class="header-auth__sign-in sign-in">
+                <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                <br>
+                <input id="header-sign-in-login" type="text" class="sign-in__input">
+                <br>
+                <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                <br>
+                <input id="header-sign-in-password" type="password" class="sign-in__input">
+                <br>
+                <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox">
+                <label for="header-sign-in-checkbox">Запомнить меня</label>
+                <br>
+                <input type="submit" class="sign-in__submit" value="Войти">
+            </form>
+        </div>
+        <br>
+        <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+        <a href="registrationPage.html" class="header-auth__registration">Регистрация</a>
+    </div>
+</header>
+<div class="main-page">
+    <div class="main-page__container container">
+        <p class="p main-page__p main-page__p_main-description">
+            ГдеКлюет.рф - сервис для поиска места для рыбалки. Здесь вы можете узнать,
+            где порыбачить в окрестностях, что можно поймать и на какую снасть,
+            есть ли подходящий подъезд к воде.
+        </p>
+        <form action="" class="main-page__form-main form-main">
+            <div class="form-main__cont">
+                <label for="main-input-place-name" class="form-main__label">
+                    Название места, в окрестности которого хотите рыбачить
+                </label>
+                <br>
+                <input type="text" class="form-main__input form-main__input_place" name="place-name"
+                       id="main-input-place-name" placeholder="название населённого пункта или водоёма">
+                <a href="" class="form-main__a form-main__a_place">Санкт-Петербург и Ленобласть</a>
+            </div>
+            <div class="form-main__cont">
+                <label for="main-select-fish" class="form-main__label">
+                    Какая рыба интересует
+                </label>
+                <br>
+                <!--<input type="text" class="form-main__input form-main__input_fish"-->
+                       <!--id="main-input-fish">-->
+                <select class="form-main__select_fish" id="main-select-fish"
+                        multiple placeholder="любая"
+                        data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false,
+                        "useCustomScroll": false, "multipleCompactStyle": true}'>
+                    <option value="v2">Option 1</option>
+                    <option value="v3">Option 2</option>
+                    <option value="v4">Option 3</option>
+                    <option value="v5">Option 4</option>
+                    <option value="v6">Option 5</option>
+                </select>
+            </div>
+            <div class="form-main__cont">
+                <label for="main-select-tackle" class="form-main__label">
+                    На какую снасть хотите ловить
+                </label>
+                <br>
+                <!--<input type="text" class="form-main__input form-main__input_tackle"-->
+                       <!--id="main-input-tackle">-->
+                <select class="form-main__select_tackle" id="main-select-tackle"
+                        multiple placeholder="неважно"
+                        data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false,
+                        "useCustomScroll": false, "multipleCompactStyle": true}'>
+                    <option value="v2">Option 1</option>
+                    <option value="v3">Option 2</option>
+                    <option value="v4">Option 3</option>
+                    <option value="v5">Option 4</option>
+                    <option value="v6">Option 5</option>
+                </select>
+            </div>
+            <div class="form-main__cont form-main__cont_checkbox">
+                <input type="checkbox" class="form-main__checkbox" id="form-main-checkbox">
+                <label class="form-main__checkbox-label" for="form-main-checkbox">хочу ловить с лодки</label>
+            </div>
+            <input type="submit" class="form-main__input form-main__input_submit" value="Найти">
+            <a href="" class="form-main__a form-main__a_best-places">Лучшие места</a>
+            <div class="form-main__special-offer">
+                <img class="form-main__img" src="images/special_offer.png" alt="">
+                <a href="" class="form-main__a form-main__a_offer">Специальные предложения</a>
+            </div>
+            <div class="clr"></div>
+        </form>
+        <section class="main-page__special-offer special-offer">
+            <h3 class="special-offer__h3 h3">Специальные предложения</h3>
+            <div href="" class="special-offer__offer offer">
+                <img src="images/dubki.jpg" alt="" class="offer__img">
+                <h5><a href="" class="offer__title">Рыболовная база &laquo;Дубки&raquo;</a></h5>
+                <p class="offer__p">
+                    Гостиница в тихом месте, аренда лодки
+                </p>
+            </div>
+            <div href="" class="special-offer__offer offer">
+                <img src="images/vantolovo.jpg" alt="" class="offer__img">
+                <h5><a href="" class="offer__title">Гостиница в Вантолово</a></h5>
+                <p class="offer__p">
+                    Всё, что нужно рыболову
+                </p>
+            </div>
+            <div href="" class="special-offer__offer offer">
+                <img src="images/Leska_i_nazgivka.jpg" alt="" class="offer__img">
+                <h5><a href="" class="offer__title">База &laquo;Леска и наживка&raquo;</a></h5>
+                <p class="offer__p">
+                    Рыбалка - это модно
+                </p>
+            </div>
+        </section>
+    </div>
+    <a href="" class="advertisement">
+        <img src="images/advertisement.jpg" alt="advertisement">
+    </a>
+    <div class="clr"></div>
+    <div class="main-page__new-articles new-articles">
+        <h3 class="new-articles__h3 h3">Свежие статьи</h3>
+        <div class="main-page__article article">
+            <img src="images/artile_1.jpg" alt="" class="article__img">
+            <h4>
+                <a href="" class="article__title">
+                    Фоторыбалка: какой фотоаппарат взять с собой
+                </a>
+            </h4>
+            <p class="article__p">
+                Может показаться, что рыбалка - занятие не особенно зрелищное.
+                Но если взять с собой правильную фотокамеру и следовать нескольким советам,
+                можно...
+            </p>
+        </div>
+        <div class="main-page__article article">
+            <img src="images/artile_2.jpg" alt="" class="article__img">
+            <h4>
+                <a href="" class="article__title">
+                    Имеет ли смысл рыбачить в городе
+                </a>
+            </h4>
+            <p class="article__p">
+                Многие рыбаки даже не пробуют рыбачить в городе, полагая, что это дело гиблое.
+                Вот что об этом думают наши собеседники.
+            </p>
+        </div>
+    </div>
+    <div class="main-page__forum-popular forum-popular">
+        <h3 class="forum-popular__h3 h3">Популярное на форуме</h3>
+        <article class="forum-popular__forum-theme forum-theme">
+            <h4>
+                <a href="" class="forum-theme__title">
+                    Как я рыбачил в приозёрске
+                </a>
+            </h4>
+            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <span class="forum-theme__inf">craver145 | 12 сообщений в теме за последнюю неделю</span>
+        </article>
+        <br>
+        <br>
+        <article class="forum-popular__forum-theme forum-theme">
+            <h4>
+                <a href="" class="forum-theme__title">
+                    я девушка и хочу рыбачить) с чего начать
+                </a>
+            </h4>
+            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <span class="forum-theme__inf">Natalia_ | 10 сообщений в теме за последнюю неделю</span>
+        </article>
+        <br>
+        <br>
+        <article class="forum-popular__forum-theme forum-theme">
+            <h4>
+                <a href="" class="forum-theme__title">
+                    Некоторые мысли про ловлю карпа
+                </a>
+            </h4>
+            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <span class="forum-theme__inf">Иван Полинов | 5 сообщений в теме за последнюю неделю</span>
+        </article>
+        <br>
+        <br>
+        <article class="forum-popular__forum-theme forum-theme">
+            <h4>
+                <a href="" class="forum-theme__title">
+                    Как я удил в Ивангороде
+                </a>
+            </h4>
+            <img src="images/icon_user.png" alt="" class="forum-theme__img">
+            <span class="forum-theme__inf">Бугров | 4 сообщений за последнюю неделю</span>
+        </article>
+    </div>
+    <div class="clr"></div>
+</div>
+</body>
+</html>

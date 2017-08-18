@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<header class="header">
+    <a class="header__logo logo" href="mainPage.html">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+        </ul>
+    </nav>
+    <!--Случай авторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth">
+        <div class="header__cont">
+            <div class="header-auth__name">Виктор Админов</div>
+            <ul class="header-auth__panel">
+                <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                <!--Появление второго элемента li осуществляется добавлением в него
+                класса header-auth__li_admin-->
+                <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a>
+                </li>
+                <li class="header-auth__li"><a href="" class="header-auth__logout">выйти</a></li>
+            </ul>
+        </div>
+        <div class="header-auth__avatar avatar">
+            <img src="images/icon_user.png" alt="" class="avatar__img">
+        </div>
+    </div>
+    <!--Случай неавторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth header-auth_active">
+        <div class="header-auth__login">
+            <div class="header-auth__login-text">Вход</div>
+            <form class="header-auth__sign-in sign-in">
+                <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                <br>
+                <input id="header-sign-in-login" type="text" class="sign-in__input">
+                <br>
+                <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                <br>
+                <input id="header-sign-in-password" type="password" class="sign-in__input">
+                <br>
+                <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox">
+                <label for="header-sign-in-checkbox">Запомнить меня</label>
+                <br>
+                <input type="submit" class="sign-in__submit" value="Войти">
+            </form>
+        </div>
+        <br>
+        <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+        <a href="registrationPage.html" class="header-auth__registration">Регистрация</a>
+    </div>
+</header>
+<div class="special-offer-page">
+    <div class="special-offer-page__img">
+        <img src="images/karasiovo.jpg" alt="">
+        <div class="special-offer-page__title">
+            <h1>База &laquo;Карасёво&raquo;</h1>
+        </div>
+    </div>
+    <div class="special-offer-page__container">
+        <p class="p">
+            Рыболовная база Карасёво находится в непосредственной близости от уловистых мест.
+            Здесь хорошо ловится плотва, окунь, щука, лещ и судак.
+            На базе Карасёво можно остановиться в комфортных условиях и по доступной цене.
+        </p>
+        <br>
+        <p class="p">
+            База расположена в непосредственной близости от выхода в Ладожское озеро:
+            в 600 метрах от Ново-Лиговской протоки и в 1500 метрах от Старолиговской протоки.
+        </p>
+        <br>
+        <p class="p">
+            Ладога за домом в 700 метрах.
+        </p>
+        <br>
+        <p class="p">
+            Сумская протока в 7 км от нас.
+        </p>
+        <br>
+        <p class="p">
+            На территории базы есть всё необходимое для загороднего отдыха и комфортной рыбалки:
+            уютные дома и компании до 30 человек, русская баня, прокат лодок и снастей.
+            Также мы можем организовать для вас трансфер до базы из Санкт-Петербурга или от
+            д. Чёрное. И обеспечить питание на весь срок вашего отдыха!
+        </p>
+        <article class="special-offer-page__article">
+            <h4 class="h4">Что тут клюет</h4>
+            <a href="" class="fish">
+                <div class="fish__cont">
+                    <img src="images/okun.png" alt="окунь" class="fish__img"><br>
+                </div>
+                <span class="fish__span">окунь</span>
+            </a>
+            <a href="" class="fish">
+                <div class="fish__cont">
+                    <img src="images/leshh.png" alt="лещ" class="fish__img"><br>
+                </div>
+                <span class="fish__span">лещ</span>
+            </a>
+            <a href="" class="fish">
+                <div class="fish__cont">
+                    <img src="images/plotva.png" alt="плотва" class="fish__img"><br>
+                </div>
+                <span class="fish__span">плотва</span>
+            </a>
+            <a href="" class="fish">
+                <div class="fish__cont">
+                    <img src="images/schuka.png" alt="щука" class="fish__img"><br>
+                </div>
+                <span class="fish__span">щука</span>
+            </a>
+            <a href="" class="fish">
+                <div class="fish__cont">
+                    <img src="images/sudak.png" alt="судак" class="fish__img"><br>
+                </div>
+                <span class="fish__span">судак</span>
+            </a>
+        </article>
+        <div class="clr"></div>
+        <article class="special-offer-page__article">
+            <h4 class="h4">Какая снасть может пригодиться</h4>
+            <p class="special-offer-page__p p">блесна, воблер, поппер, живец</p>
+        </article>
+        <article class="special-offer-page__article">
+            <h4 class="h4">Подъезды к воде</h4>
+            <p class="special-offer-page__p p">на самой базе есть пристань и пара песчаных пляжей.
+                В окрестностях в основном
+                трявянистый берег.</p>
+        </article>
+        <article class="special-offer-page__article">
+            <h4 class="h4">Ловля с лодки</h4>
+            <p class="special-offer-page__p p">много возможностей для ловли с лодки</p>
+        </article>
+        <section class="special-offer-page__prices prices">
+            <h3 class="h3">Цены</h3>
+            <table class="prices__table">
+                <tr class="prices__tr">
+                    <th>Услуга</th>
+                    <th>Цена</th>
+                </tr>
+                <tr class="prices__tr prices__tr_grey">
+                    <td>Въезд на территорию базы</td>
+                    <td>500 ₽ с человека</td>
+                </tr>
+                <tr class="prices__tr">
+                    <td>Прокат вёсельной лодки</td>
+                    <td>400 ₽ в час</td>
+                </tr>
+                <tr class="prices__tr prices__tr_grey">
+                    <td>Прокат моторной лодки</td>
+                    <td>700 ₽ в час</td>
+                </tr>
+                <tr class="prices__tr">
+                    <td colspan="2">Прокат снасти</td>
+                </tr>
+                <tr class="prices__tr prices__tr_grey">
+                    <td class="tackle-rent__td">спиннинг</td>
+                    <td>200 ₽</td>
+                </tr>
+                <tr class="prices__tr">
+                    <td class="tackle-rent__td">блесны, воблеры, попперы</td>
+                    <td>100 ₽</td>
+                </tr>
+            </table>
+        </section>
+        <section class="special-offer-page__photogalery photogalery">
+            <h3 class="h3">Фотогалерея</h3>
+            <div class="photogalery__photo">
+                <img src="images/photo_1.jpg" alt="">
+                <img src="images/arrow.png" alt="" class="photogalery__arrow">
+            </div>
+        </section>
+        <section class="special-offer-page__otherOpinions otherOpinions">
+            <h3 class="otherOpinions__h3 h3">Другие пользователи об этом месте</h3>
+            <article class="opinion">
+                <img class="opinion__img" src="images/icon_user.png" alt="icon">
+                <a class="opinion__name" href="">Пётр</a>
+                <time class="opinion__date" datetime="2017-04-13">, 5 мая 2017 года</time>
+                <div class="clr"></div>
+                <p class="opinion__p p">
+                    Персонал приятный, место красивое, понравилось
+                </p>
+            </article>
+            <img src="images/line.jpg" alt="">
+            <article class="opinion">
+                <img class="opinion__img" src="images/icon_user.png" alt="icon">
+                <a class="opinion__name" href="">Ильдар Витин</a>
+                <time class="opinion__date" datetime="2016-08-18">, 2 марта 2017 года</time>
+                <div class="clr"></div>
+                <p class="opinion__p p">
+                    Не понравилось на базе, недружелюбный персонал, заплатил за снасть,
+                    потом управляющий куда-то пропал минут на 40, пришлось самому ходить искать.
+                    Но природа вокруг хорошая, ничего не скажу.
+                </p>
+            </article>
+        </section>
+    </div>
+    <a href="" class="advertisement">
+        <img src="images/advertisement.jpg" alt="advertisement">
+    </a>
+    <div class="place-in-map">
+        <h4 class="place-in-map__h4 h4">Место на карте</h4>
+        <div class="place-in-map__map">
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A08f500fbb134cc904c397590741635b4a1278c71fd2ecd33d2cf7008026d6650&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+    </div>
+    <div class="otherPlaces">
+        <h4 class="otherPlaces__h4 h4">Другие места поблизости</h4>
+        <ul>
+            <li class="otherPlaces__li"><a class="otherPlaces__a" href="">Озеро Меднозаводский
+                разлив</a>, 3 км
+            </li>
+            <li class="otherPlaces__li"><a class="otherPlaces__a" href="">Озеро Большое</a>, 10 км</li>
+            <li class="otherPlaces__li"><a class="otherPlaces__a" href="">Озеро Сестрорецкий разлив</a>,
+                15 км
+            </li>
+            <li class="otherPlaces__li"><a class="otherPlaces__a" href="">Озеро Лахтинский разлив</a>,
+                20 км
+            </li>
+        </ul>
+    </div>
+    <div class="popularArticles">
+        <h4 class="popularArticles__h4 h4">Популярные статьи</h4>
+        <ul>
+            <li class="popularArticles__li"><a href="" class="popularArticles__a">Фоторыбалка: какой
+                фотоаппарат взять с собой</a></li>
+            <li class="popularArticles__li"><a href="" class="popularArticles__a">Имеет ли смысл рыбачить
+                в городе</a></li>
+            <li class="popularArticles__li"><a href="" class="popularArticles__a">В Сестрорецком разливе
+                построят лососёвую ферму</a></li>
+        </ul>
+    </div>
+    <div class="clr"></div>
+</div>
+</body>
+</html>
