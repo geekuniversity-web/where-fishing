@@ -69,7 +69,6 @@ body {
   width: 960px;
   height: 50px;
   background-color: #5b5b5b;
-  overflow: hidden;
   box-sizing: border-box;
   padding-right: 21px; }
   .header__logo {
@@ -182,11 +181,24 @@ body {
     font-size: 14px;
     font-weight: 300;
     line-height: 16px;
-    text-decoration: underline;
     text-align: right;
     float: right;
-    margin-top: 6px;
-    margin-bottom: 4px; }
+    box-sizing: border-box; }
+    .header-auth__login-text {
+      width: 45px;
+      height: 26px;
+      margin-right: -7px;
+      box-sizing: border-box;
+      padding-top: 6px;
+      padding-right: 7px;
+      text-decoration: underline; }
+    .header-auth__login:hover {
+      cursor: pointer; }
+    .header-auth__login:hover .header-auth__login-text {
+      background-color: #3880ff;
+      text-decoration: none !important; }
+    .header-auth__login:hover .sign-in {
+      display: block; }
   .header-auth__registration {
     font-family: OpenSansLight;
     color: #ffffff;
@@ -196,8 +208,62 @@ body {
     text-decoration: underline;
     text-align: right;
     float: right; }
+    .header-auth__registration_del {
+      display: none; }
   .header-auth_active {
     display: block; }
+  .header-auth__sign-in {
+    position: relative;
+    left: 8px;
+    display: none; }
+
+.sign-in {
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.75);
+  width: 240px;
+  height: 249px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 14px;
+  padding-top: 21px;
+  font-family: OpenSansLight;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
+  text-align: left;
+  position: relative;
+  z-index: 3; }
+  .sign-in__input {
+    width: 204px;
+    height: 34px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1.5px solid #cdcdcd;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 13px;
+    font-family: OpenSansLight;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: left; }
+  .sign-in__submit {
+    width: 63px;
+    height: 32px;
+    margin-top: 15px;
+    background-color: #3681ff;
+    border: 1px solid #3681ff;
+    border-radius: 5px;
+    outline: none;
+    font-family: OpenSansLight;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px; }
+    .sign-in__submit:hover {
+      cursor: pointer; }
 
 .avatar {
   border-radius: 5px;
@@ -280,21 +346,19 @@ body {
   margin-top: 9px; }
   .fish + .fish {
     margin-left: 8px; }
+  .fish__cont {
+    width: 104px;
+    height: 62px; }
   .fish__img {
     margin-top: 4px; }
   .fish__span {
+    margin-top: -23px;
     display: block;
     font-family: OpenSansRegular;
     color: #000000;
     font-size: 14px;
     font-weight: 400;
     text-align: center; }
-  .fish_okun {
-    padding-top: 3px; }
-  .fish_schuka {
-    padding-top: 8px; }
-  .fish_sudak {
-    padding-top: 7px; }
   .fish:hover {
     background-color: #3880ff; }
   .fish:hover .fish__span {
@@ -859,5 +923,91 @@ body {
   .place-in-map__map {
     width: 263px;
     height: 350px; }
+
+.regPage {
+  width: 960px;
+  height: 757px;
+  background-image: url(../images/regPage_bg.jpg);
+  box-sizing: border-box;
+  padding-top: 74px; }
+  .regPage__bg-reg {
+    width: 486px;
+    height: 505px;
+    background-color: #fff;
+    position: relative;
+    top: -505px;
+    z-index: 0;
+    opacity: 0.8; }
+
+.reg-form {
+  box-shadow: 0px 0px 38px 0px rgba(0, 0, 0, 0.4);
+  width: 486px;
+  height: 505px;
+  box-sizing: border-box;
+  padding-top: 39px;
+  padding-left: 21px;
+  position: relative;
+  z-index: 1; }
+  .reg-form__h2 {
+    text-align: center;
+    font-family: MyriadProBold;
+    color: #000000;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 16px; }
+  .reg-form__label {
+    display: block;
+    font-family: OpenSansRegular;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left; }
+    .reg-form__label_final {
+      margin-top: 16px; }
+  .reg-form__p {
+    margin-top: 36px;
+    margin-bottom: 23px; }
+  .reg-form__input {
+    width: 212px;
+    height: 34px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    margin-top: 9px;
+    box-sizing: border-box;
+    padding-left: 13px;
+    font-family: OpenSansLight;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: left; }
+  .reg-form__cont {
+    float: left;
+    margin-right: 14px; }
+  .reg-form__login-label {
+    width: 212px;
+    font-family: OpenSansRegular;
+    color: #000000;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 11px;
+    margin-bottom: 30px; }
+  .reg-form__submit {
+    width: 158px;
+    height: 34px;
+    background: #3681ff;
+    border: 1px solid #3681ff;
+    border-radius: 5px;
+    font-family: OpenSansLight;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    margin-top: 23px; }
+    .reg-form__submit:hover {
+      cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
