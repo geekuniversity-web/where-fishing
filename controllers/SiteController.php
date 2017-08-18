@@ -6,7 +6,6 @@ use app\models\Article;
 use app\models\Fish;
 use app\models\Gear;
 use mdm\admin\models\form\Login;
-use mdm\admin\models\form\Signup;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -120,7 +119,7 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        $model = new Signup();
+        $model = new \app\models\Signup();
         if ($model->load(Yii::$app->getRequest()->post())) {
             if ($user = $model->signup()) {
                 return $this->goHome();
