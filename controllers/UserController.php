@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class UserController extends Controller
+class UserController extends ControllerWithAuth
 {
     /**
      * @inheritdoc

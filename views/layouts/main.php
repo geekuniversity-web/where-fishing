@@ -40,9 +40,28 @@ PublicAsset::register($this);
     <?php if (Yii::$app->user->isGuest) { ?>
         <!--Случай неавторизованного пользователя (переключение через добавление класса header-auth_active)-->
         <div class="header__header-auth header-auth header-auth_active">
-            <a href="/site/login" class="header-auth__login">Вход</a>
+            <div class="header-auth__login">
+                <div class="header-auth__login-text">Вход</div>
+                <form class="header-auth__sign-in sign-in" action="<?=\yii\helpers\Url::home(true) . 'site/login' ?>" method="post">
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
+                    <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                    <br>
+                    <input id="header-sign-in-login" type="text" class="sign-in__input" name="Login[username]">
+                    <br>
+                    <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                    <br>
+                    <input id="header-sign-in-password" type="password" class="sign-in__input" name="Login[password]">
+                    <br>
+                    <input type="hidden" name="Login[rememberMe]" value="0">
+                    <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox" name="Login[rememberMe]">
+                    <label for="header-sign-in-checkbox">Запомнить меня</label>
+                    <br>
+                    <input type="submit" class="sign-in__submit" value="Войти">
+                </form>
+            </div>
             <br>
-            <a href="/site/signup" class="header-auth__registration">Регистрация</a>
+            <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+            <a href="" class="header-auth__registration">Регистрация</a>
         </div>
     <?php } else { ?>
         <!--Случай авторизованного пользователя (переключение через добавление класса header-auth_active)-->
