@@ -108,27 +108,17 @@ $this->title = $place->title;
 
         <section class="special-offer-page__otherOpinions otherOpinions">
             <h3 class="otherOpinions__h3 h3">Другие пользователи об этом месте</h3>
-            <article class="opinion">
-                <img class="opinion__img" src="/images/icon_user.png" alt="icon">
-                <a class="opinion__name" href="">Пётр</a>
-                <time class="opinion__date" datetime="2017-04-13">, 5 мая 2017 года</time>
-                <div class="clr"></div>
-                <p class="opinion__p p">
-                    Персонал приятный, место красивое, понравилось
-                </p>
-            </article>
-            <img src="/images/line.jpg" alt="">
-            <article class="opinion">
-                <img class="opinion__img" src="/images/icon_user.png" alt="icon">
-                <a class="opinion__name" href="">Ильдар Витин</a>
-                <time class="opinion__date" datetime="2016-08-18">, 2 марта 2017 года</time>
-                <div class="clr"></div>
-                <p class="opinion__p p">
-                    Не понравилось на базе, недружелюбный персонал, заплатил за снасть,
-                    потом управляющий куда-то пропал минут на 40, пришлось самому ходить искать.
-                    Но природа вокруг хорошая, ничего не скажу.
-                </p>
-            </article>
+            <? foreach ($comments as $comment) { ?>
+                <article class="opinion">
+                    <img class="opinion__img" src="/images/icon_user.png" alt="icon">
+                    <a class="opinion__name" href="<?=Yii::$app->homeUrl . 'user/index?id=' . $comment['user_id']?>"><?=$comment['username']?></a>
+                    <time class="opinion__date" datetime="2017-04-13">, <?=$comment['date']?></time>
+                    <div class="clr"></div>
+                    <p class="opinion__p p">
+                        <?=$comment['content']?>
+                    </p>
+                </article>
+            <? } ?>
         </section>
     </div>
     <a href="" class="advertisement">

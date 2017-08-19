@@ -8,6 +8,7 @@ use app\models\Place;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\Signup;
 use Yii;
+use yii\db\Query;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -81,11 +82,21 @@ class PlaceController extends ControllerWithAuth
         $gears = $place->getAllGears();
         $popular_articles = Article::getPopular();
 
+        $query = new Query();
+        $query->from('comments')
+            ->where(['type' => '2', 'article_id' => $id])
+            ->leftJoin('user', 'comments.user_id = user.id')
+            ->orderBy(['date'=>SORT_DESC]);
+
+        $command = $query->createCommand();
+        $comments = $command->queryAll();
+
         return $this->render('view', [
             'place' => $place,
             'fishes' => $fishes,
             'gears' => $gears,
             'popular_articles' => $popular_articles,
+            'comments' => $comments
         ]);
     }
 }

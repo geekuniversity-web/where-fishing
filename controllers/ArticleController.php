@@ -84,6 +84,7 @@ class ArticleController extends ControllerWithAuth
         //$comments = Comments::find()->where(['article_id' => $id])->leftJoin('user', 'comments.user_id = user.id')->orderBy(['date'=>SORT_DESC])->asArray()->all();
         $query = new Query();
         $query->from('comments')
+            ->where(['type' => '1', 'article_id' => $id])
             ->leftJoin('user', 'comments.user_id = user.id')
             ->orderBy(['date'=>SORT_DESC]);
 
