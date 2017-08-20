@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/add-comment.js"></script>
 </head>
 <body>
 <header class="header">
@@ -61,6 +63,7 @@
 <div class="place-page">
     <div class="place-page__container container">
         <h2 class="place-page__h2">Река Чёрная</h2>
+        <a href="" class="place-page__edit-inf">отредактировать информацию о месте</a>
         <p class="place-page__p p">Медленная, мелкая, извилистая река в Ленинградской области. Подходит для ловли
             мелкой рыбы.</p>
         <article class="place-page__article">
@@ -114,6 +117,8 @@
         </section>
         <section class="place-page__otherOpinions otherOpinions">
             <h3 class="otherOpinions__h3 h3">Другие пользователи об этом месте</h3>
+            <!--Добавление штампа "Комментарий добавлен" выполняется добавлением
+            к классу opinion__added класса opinion__added_active-->
             <article class="opinion">
                 <img class="opinion__img" src="images/icon_user.png" alt="icon">
                 <a class="opinion__name" href="">v_ignatiev</a>
@@ -122,6 +127,11 @@
                 <p class="opinion__p p">был тут в апреле рядом с Песочным, особо ничего не поймал,
                     пара карасей, одного лещика. всё часа за 4. Прихожу бывает просто посидеть
                     но не ради лова</p>
+                <!--Добавление штампа "Комментарий добавлен" выполняется добавлением
+            к классу opinion__added класса opinion__added_active-->
+                <div class="opinion__added opinion__added_active">
+                    Комментарий добавлен!
+                </div>
             </article>
             <img src="images/line.jpg" alt="">
             <article class="opinion">
@@ -131,7 +141,30 @@
                 <div class="clr"></div>
                 <p class="opinion__p p">Ловил как-то с моста на а181, пару подлещиков мелких достал,
                     рыбы не богато</p>
+                <!--Добавление штампа "Комментарий добавлен" выполняется добавлением
+            к классу opinion__added класса opinion__added_active-->
+                <div class="opinion__added">
+                    Комментарий добавлен!
+                </div>
             </article>
+            <!--Добавление класса otherOpinions__add-comment_active вставляет кнопку-->
+            <button class="otherOpinions__add-comment otherOpinions__add-comment_active">Добавить отзыв</button>
+            <!--Добавление класса place-page-form_active вставляет форму-->
+            <form action="" class="place-page-form">
+                <h4 class="place-page-form__h4">Комментарий для места Река Чёрная</h4>
+                <textarea name="" id="" cols="85" rows="10" class="place-page-form__textarea"></textarea>
+                <input type="submit" class="place-page-form__submit" value="Добавить комментарий">
+                <!--Добавление класса place-page-form__error_active вставляет сообщение об ошибке-->
+                <p class="place-page-form__error">
+                    Ошибка: <br>
+                     &mdash; не заполнен текст комментария
+                </p>
+            </form>
+            <!--Добавление класса comment-wait_active вставляет ожидание добавления комментария-->
+            <div class="comment-wait">
+                <h4 class="comment-wait__h4">Комментарий для места Река Чёрная</h4>
+                <p class="comment-wait__p">Добавление комментария...</p>
+            </div>
         </section>
     </div>
     <a href="" class="advertisement">
