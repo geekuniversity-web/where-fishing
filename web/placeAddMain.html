@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<header class="header">
+    <a class="header__logo logo" href="mainPage.html">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+        </ul>
+    </nav>
+    <!--Случай авторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth">
+        <div class="header__cont">
+            <div class="header-auth__name">Виктор Админов</div>
+            <ul class="header-auth__panel">
+                <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                <!--Появление второго элемента li осуществляется добавлением в него
+                класса header-auth__li_admin-->
+                <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a>
+                </li>
+                <li class="header-auth__li"><a href="" class="header-auth__logout">выйти</a></li>
+            </ul>
+        </div>
+        <div class="header-auth__avatar avatar">
+            <img src="images/icon_user.png" alt="" class="avatar__img">
+        </div>
+    </div>
+    <!--Случай неавторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth header-auth_active">
+        <div class="header-auth__login">
+            <div class="header-auth__login-text">Вход</div>
+            <form class="header-auth__sign-in sign-in">
+                <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                <br>
+                <input id="header-sign-in-login" type="text" class="sign-in__input">
+                <br>
+                <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                <br>
+                <input id="header-sign-in-password" type="password" class="sign-in__input">
+                <br>
+                <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox">
+                <label for="header-sign-in-checkbox">Запомнить меня</label>
+                <br>
+                <input type="submit" class="sign-in__submit" value="Войти">
+            </form>
+        </div>
+        <br>
+        <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+        <a href="registrationPage.html" class="header-auth__registration">Регистрация</a>
+    </div>
+</header>
+<div class="place-add-main">
+    <div class="place-add-main__map">
+        <script type="text/javascript" charset="utf-8" async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A08f500fbb134cc904c397590741635b4a1278c71fd2ecd33d2cf7008026d6650&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+    <!--Добавление класса place-add-main__bg_active создаёт засветление-->
+    <div class="place-add-main__bg place-add-main__bg_active"></div>
+    <!--Добавление класса place-add-form_active вставляет форму добавления места-->
+    <form action="" class="place-add-form place-add-form_active">
+        <h2 class="place-add-form__h2">Добавление места</h2>
+        <!--Добавление класса place-add-form__cont_error создаёт эффект ошибки-->
+        <div class="place-add-form__cont place-add-form__cont_error">
+            <label for="place-add-form-name" class="place-add-form__label">Название места</label>
+            <input type="text" id="place-add-form-name" class="place-add-form__input">
+        </div>
+        <!--Добавление класса place-add-form__cont_error создаёт эффект ошибки-->
+        <div class="place-add-form__cont">
+            <label for="place-add-form-fish" class="place-add-form__label">Какая рыба тут клюёт</label>
+            <input type="email" id="place-add-form-fish" class="place-add-form__input">
+        </div>
+        <div class="place-add-form__indent"></div>
+        <div class="close-select">
+            <div class="close-select__span">щука</div>
+            <img src="images/del.png" alt="">
+        </div>
+        <div class="close-select">
+            <div class="close-select__span">карась</div>
+            <img src="images/del.png" alt="">
+        </div>
+        <!--Добавление класса place-add-form__cont_error создаёт эффект ошибки-->
+        <div class="place-add-form__cont">
+            <label for="place-add-form-tackle" class="place-add-form__label">Какая снасть пригодится</label>
+            <input type="email" id="place-add-form-tackle" class="place-add-form__input">
+        </div>
+        <div class="place-add-form__indent"></div>
+        <div class="close-select">
+            <div class="close-select__span">блесна</div>
+            <img src="images/del.png" alt="">
+        </div>
+        <div class="clr"></div>
+        <input type="checkbox" class="place-add-form__checkbox" id="place-add-form-checkbox">
+        <label for="place-add-form-checkbox" class="place-add-form__label">В это место можно попасть только на лодке</label>
+        <div class="clr"></div>
+        <label for="place-add-form-textarea" class="place-add-form__label">
+            Если Вы здесь были, можете написать отзыв об этом месте
+        </label>
+        <textarea name="" id="place-add-form-textarea" cols="45" rows="7" class="place-add-form__textarea"></textarea>
+        <input type="submit" value="Добавить место" class="place-add-form__submit">
+        <p class="place-add-form__error place-add-form__error_active">
+            Ошибка: <br>
+            &mdash; не заполнено поле <br>
+            &laquo;<span class="place-add-form__span">Название места</span>&raquo;
+        </p>
+    </form>
+    <!--Добавление класса place-add-main__message_active вставляет сообщение о том,
+    что место добавлено-->
+    <div class="place-add-main__message message place-add-main__message_added">
+        <h4 class="message__title">Добавление места</h4>
+        <p class="message__p">Место добавлено</p>
+        <a href="" class="message__close">Закрыть</a>
+    </div>
+    <!--Добавление класса place-add-main__message_active вставляет сообщение о том,
+    что место добавляется-->
+    <div class="place-add-main__message message place-add-main__message_adding">
+        <h4 class="message__title">Добавление места</h4>
+        <p class="message__p">Место добавляется...</p>
+    </div>
+    <!--Добавление класса place-add-main__message_active вставляет сообщение о том,
+    что можно выбрать место по карте-->
+    <div class="place-add-main__message message place-add-main__message_add">
+        <h4 class="message__title">Добавление места</h4>
+        <p class="message__p">Кликните по месту на карте, <br> куда хотите поставить метку</p>
+    </div>
+    <!--Добавление класса place-add-main__cancel_active вставляет блок отмены-->
+    <a href="" class="place-add-main__cancel cancel place-add-main__cancel_active">
+        <img src="images/cancel.png" alt="" class="cancel__cross">
+        <h4 class="cancel__title">Отмена</h4>
+        <p class="cancel__p">вернуться к поиску</p>
+    </a>
+</div>
+</body>
+</html>
