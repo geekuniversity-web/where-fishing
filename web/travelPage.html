@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<header class="header">
+    <a class="header__logo logo" href="mainPage.html">Где клюет<span class="logo__span">.рф</span></a>
+    <nav class="header__nav nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="placePage.html">Места</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Поездки</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Форум</a></li>
+            <li class="nav__li"><a class="nav__a" href="">Статьи</a></li>
+        </ul>
+    </nav>
+    <!--Случай авторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth">
+        <div class="header__cont">
+            <div class="header-auth__name">Виктор Админов</div>
+            <ul class="header-auth__panel">
+                <li class="header-auth__li"><a href="" class="header-auth__profile">профиль</a></li>
+                <!--Появление второго элемента li осуществляется добавлением в него
+                класса header-auth__li_admin-->
+                <li class="header-auth__li header-auth__li_admin"><a href="" class="header-auth__control">управление</a>
+                </li>
+                <li class="header-auth__li"><a href="" class="header-auth__logout">выйти</a></li>
+            </ul>
+        </div>
+        <div class="header-auth__avatar avatar">
+            <img src="images/icon_user.png" alt="" class="avatar__img">
+        </div>
+    </div>
+    <!--Случай неавторизованного пользователя (переключение через добавление
+    класса header-auth_active)-->
+    <div class="header__header-auth header-auth header-auth_active">
+        <div class="header-auth__login">
+            <div class="header-auth__login-text">Вход</div>
+            <form class="header-auth__sign-in sign-in">
+                <label for="header-sign-in-login" class="sign-in__label">Логин</label>
+                <br>
+                <input id="header-sign-in-login" type="text" class="sign-in__input">
+                <br>
+                <label for="header-sign-in-password" class="sign-in__label">Пароль</label>
+                <br>
+                <input id="header-sign-in-password" type="password" class="sign-in__input">
+                <br>
+                <input id="header-sign-in-checkbox" type="checkbox" class="sign-in__checkbox">
+                <label for="header-sign-in-checkbox">Запомнить меня</label>
+                <br>
+                <input type="submit" class="sign-in__submit" value="Войти">
+            </form>
+        </div>
+        <br>
+        <!--Если есть класс header-auth__registration_del пункт "Регистрация" не отображается-->
+        <a href="registrationPage.html" class="header-auth__registration">Регистрация</a>
+    </div>
+</header>
+<div class="travel-page">
+    <div class="travel-page__map">
+        <script type="text/javascript" charset="utf-8" async
+                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A08f500fbb134cc904c397590741635b4a1278c71fd2ecd33d2cf7008026d6650&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+    <form action="" class="travel-page__form">
+        <input type="text" class="travel-page__input" placeholder="название населенного пункта, рядом с которым Вы хотите рыбачить">
+        <input type="submit" value="Найти" class="travel-page__submit">
+    </form>
+    <section class="travel-page__travels travels">
+        <article class="travels__article">
+            <p class="travels__p p">
+                В разделе &laquo;Поездки&raquo; можно присоединиться к рыбакам, которые собираются
+                куда-нибудь поехать, либо найти попутчиков для своей поездки.
+            </p>
+            <a href="" class="travels__add-travel">
+                Добавить свою поездку
+            </a>
+        </article>
+        <div class="travels__line"></div>
+        <article class="travels__article">
+            <h5 class="travels__h5">
+                из всеволожска на лемболовское
+                озеро 27 августа
+            </h5>
+            <p class="travels__p p">
+                собираюсь на западный берег лемболовского с двумя друзьями есть ещё одно
+                место готов взять попутчика. будем там до вечера 28 августа.
+                ночуем в палатке. собираемся ловить омуля
+            </p>
+            <a href="" class="travels__respond">откликнуться</a>
+            <a href="" class="travels__comments">2 комментария</a>
+        </article>
+        <div class="travels__line"></div>
+        <article class="travels__article">
+            <h5 class="travels__h5">
+                Сертолово - озеро Нахимовское
+            </h5>
+            <p class="travels__p p">
+                30 августа, выезжаем изСертолово в 6 утра, 2 место свободно едем на щуку с лодки
+            </p>
+            <a href="" class="travels__respond">откликнуться</a>
+        </article>
+        <div class="travels__line"></div>
+        <article class="travels__article">
+            <h5 class="travels__h5">
+                Из Ижоры в Зеленогорск 01.09
+            </h5>
+            <p class="travels__p p">
+                пойдём на моторной лодке до Зеленогорска и обратно ловить что-нибудь на блесну
+            </p>
+            <a href="" class="travels__respond">откликнуться</a>
+            <a href="" class="travels__comments">1 комментарий</a>
+        </article>
+        <div class="travels__line"></div>
+    </section>
+    <div class="clr"></div>
+</div>
+</body>
+</html>

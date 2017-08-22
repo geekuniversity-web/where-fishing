@@ -1313,4 +1313,96 @@ body {
   text-align: left;
   margin-left: 35px; }
 
+.travel-page {
+  width: 958px;
+  border-left: 1px solid #a5a5a5;
+  border-right: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+  background-color: #fff;
+  position: relative; }
+  .travel-page__map {
+    width: 675px;
+    height: 757px;
+    float: left; }
+  .travel-page__form {
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.15);
+    width: 656px;
+    height: 31px;
+    position: absolute;
+    top: 9px;
+    left: 10px; }
+  .travel-page__input {
+    width: 538px;
+    height: 31px;
+    box-sizing: border-box;
+    padding-left: 14px;
+    font-family: OpenSansRegular;
+    color: rgba(91, 91, 91, 0.64);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    border: none;
+    outline: none; }
+  .travel-page__submit {
+    width: 118px;
+    height: 31px;
+    background-color: #cccccc;
+    border: none;
+    outline: none;
+    margin-left: -4px;
+    margin-top: -3px; }
+
+.travels {
+  width: 283px;
+  float: right; }
+  .travels__article {
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-top: 10px;
+    padding-right: 15px; }
+  .travels__p {
+    margin-bottom: 14px;
+    font-size: 14px; }
+  .travels__add-travel {
+    display: block;
+    width: 261px;
+    height: 38px;
+    background-color: #3681ff;
+    border-radius: 5px;
+    color: #fff;
+    font-family: OpenSansRegular;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 8px; }
+  .travels__line {
+    height: 1px;
+    border-bottom: 1px solid #a5a5a5;
+    margin-top: 10px; }
+  .travels__h5 {
+    font-family: OpenSansRegular;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 10px; }
+  .travels__respond {
+    font-family: OpenSansRegular;
+    color: #3880ff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+    text-align: left; }
+  .travels__comments {
+    font-family: OpenSansRegular;
+    color: #3880ff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+    text-align: left;
+    margin-left: 15px; }
+
 /*# sourceMappingURL=style.css.map */
