@@ -29,6 +29,17 @@ $this->title = 'Places';
                     </p>
                 </div>
             <?php } ?>
+            <?php
+            //TODO: вот тут должны быть какие-то отличия между обычными и платными наверн причём у них еще и пагинации разные будут.
+            foreach ($places_free as $place) { ?>
+                <div class="special-offer__offer offer">
+                    <img src="<?= $place->getImage(); ?>" alt="" class="offer__img" width="200">
+                    <h5><a href="<?= Url::toRoute(['place/free', 'id' => $place->id]); ?>" class="offer__title"><?= $place->title; ?></a></h5>
+                    <p class="offer__p">
+                        <?= StringHelper::truncate($place->description, 120, '...') ?>
+                    </p>
+                </div>
+            <?php } ?>
         </section>
     </div>
 </div>

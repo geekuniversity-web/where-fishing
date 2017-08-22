@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\Fish;
+use app\models\FreePlace;
 use app\models\Place;
 use mdm\admin\models\form\Login;
 use mdm\admin\models\form\Signup;
@@ -68,10 +69,12 @@ class PlaceController extends ControllerWithAuth
     public function actionIndex()
     {
         $data = Place::getAll();
+        $free = FreePlace::getAll();
 
         return $this->render('index', [
             'places' => $data['places'],
-            'pagination' => $data['pagination']
+            'pagination' => $data['pagination'],
+            'places_free' => $free['places'] // Сейчас мы бесплатные и платные просто собираем в кучу, причём платные сверху
         ]);
     }
 
@@ -92,6 +95,31 @@ class PlaceController extends ControllerWithAuth
         $comments = $command->queryAll();
 
         return $this->render('view', [
+            'place' => $place,
+            'fishes' => $fishes,
+            'gears' => $gears,
+            'popular_articles' => $popular_articles,
+            'comments' => $comments
+        ]);
+    }
+
+    public function actionFree($id)
+    {
+        $place = FreePlace::findOne($id);
+        $fishes = $place->getAllFishes();
+        $gears = $place->getAllGears();
+        $popular_articles = Article::getPopular();
+
+        $query = new Query();
+        $query->from('comments')
+            ->where(['type' => '3', 'article_id' => $id]) // 3 - бесплатные места, 2 - платные, 1 - статьи
+            ->leftJoin('user', 'comments.user_id = user.id')
+            ->orderBy(['date'=>SORT_DESC]);
+
+        $command = $query->createCommand();
+        $comments = $command->queryAll();
+
+        return $this->render('free', [
             'place' => $place,
             'fishes' => $fishes,
             'gears' => $gears,
