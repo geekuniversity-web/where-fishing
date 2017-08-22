@@ -948,15 +948,15 @@ body {
   background-color: #fff; }
   .special-offer-page__img {
     width: 958px;
-    height: 320px;
     position: relative; }
+    .special-offer-page__img > img {
+      width: 958px; }
   .special-offer-page__title {
     width: 296px;
-    height: 52px;
     background-color: #cccfcf;
     position: absolute;
     left: 22px;
-    top: 246px;
+    bottom: 22px;
     font-family: MyriadProBold;
     color: #000000;
     font-size: 17px;
@@ -964,7 +964,8 @@ body {
     line-height: 30px;
     text-align: center;
     box-sizing: border-box;
-    padding-top: 9px; }
+    padding-top: 9px;
+    padding-bottom: 11px; }
   .special-offer-page__container {
     width: 675px;
     box-sizing: border-box;
